@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "24a9848e-064a-4d09-88f6-bd1cb91d17ba",
+		"name": "Price Ninja API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16447291"
+	},
+	"item": [
+		{
+			"name": "Get Products",
+			"request": {
+				"auth": {
+					"type": "inherit"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/products/beee6f70-a251-429b-ac2f-a49ebeb6b077",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"beee6f70-a251-429b-ac2f-a49ebeb6b077"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/products/ed69f3a5-5370-4adf-92dc-0ea336bfc2b8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"ed69f3a5-5370-4adf-92dc-0ea336bfc2b8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Scrape Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Example Product\",\r\n  \"url\": \"https://example.com/product\",\r\n  \"vendor\": \"Example Vendor\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"currentPrice\": 29.99,\r\n  \"originalPrice\": 39.99,\r\n  \"lowestPrice\": 24.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
