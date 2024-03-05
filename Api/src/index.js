@@ -2,6 +2,7 @@ import app from "./app.js";
 import { sequelize } from "./database.js";
 import "./models/Product.js";
 import "./models/Change.js";
+import "./models/Category.js";
 
 // Create tables if they dont exist
 async function syncDatabase() {
