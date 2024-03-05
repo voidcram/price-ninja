@@ -8,7 +8,7 @@ export const Product = sequelize.define(
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
-      defaultValue: DataTypes.UUIDV4, // Assign UUID v4 as the default value for 'id'
+      defaultValue: DataTypes.UUIDV4,
     },
     name: {
       type: DataTypes.STRING(50),
@@ -53,8 +53,15 @@ export const Product = sequelize.define(
   },
   {
     timestamps: true,
+    indexes: [
+      {
+        unique: false,
+        fields: ["id"],
+      },
+      {
+        unique: false,
+        fields: ["url"],
+      },
+    ],
   }
 );
-
-Change.belongsTo(Product, { foreignKey: 'productId' });
-Product.hasMany(Change, { foreignKey: 'productId' });
