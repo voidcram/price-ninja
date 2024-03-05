@@ -1,25 +1,21 @@
 import { Change } from "../../../models/Change.js";
 import { Product } from "../../../models/Product.js";
+import { updateSchema, scrapeSchema } from "../schemas.js";
 
 export async function scrapeProduct(req, res) {
-    const { name, url, vendor, brand, stock, currentPrice, originalPrice, lowestPrice } = req.body;
+  try {
+    const validation = scrapeSchema.validate(req.body);
 
-    try {
-        const newProduct = await Product.create({
-            name,
-            url,
-            vendor,
-            brand,
-            stock,
-            currentPrice,
-            originalPrice,
-            lowestPrice
-        });
-
-        return res.status(201).json(newProduct);
-    } catch (error) {
-        return res.status(500).json({ message: "Internal Server Error" });
+    if (validation.error) {
+      return res.status(400).json(validation.error.details);
     }
+
+    const newProduct = await Product.create(req.body);
+
+    return res.status(201).json(newProduct);
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
 }
 
 export async function getAll(req, res) {
@@ -57,6 +53,12 @@ export async function updateProduct(req, res) {
   const { id } = req.params;
 
   try {
+    const validation = updateSchema.validate(req.body);
+
+    if (validation.error) {
+      return res.status(400).json(validation.error.details);
+    }
+
     const [updated] = await Product.update(req.body, { where: { id } });
 
     // Return updated project incase it got updated
