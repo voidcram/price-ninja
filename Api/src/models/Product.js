@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database.js";
-import { Change } from "./Change.js";
 
 export const Product = sequelize.define(
   "products",
@@ -21,6 +20,11 @@ export const Product = sequelize.define(
       defaultValue: "0",
     },
     vendor: {
+      type: DataTypes.STRING(30),
+      allowNull: false,
+      defaultValue: "0",
+    },
+    category: {
       type: DataTypes.STRING(30),
       allowNull: false,
       defaultValue: "0",
