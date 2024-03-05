@@ -2,8 +2,24 @@ import { Change } from "../../../models/Change.js";
 import { Product } from "../../../models/Product.js";
 
 export async function scrapeProduct(req, res) {
-  // TODO: validate body input and do the scrape system
-  res.send("Scrapeando");
+    const { name, url, vendor, brand, stock, currentPrice, originalPrice, lowestPrice } = req.body;
+
+    try {
+        const newProduct = await Product.create({
+            name,
+            url,
+            vendor,
+            brand,
+            stock,
+            currentPrice,
+            originalPrice,
+            lowestPrice
+        });
+
+        return res.status(201).json(newProduct);
+    } catch (error) {
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
 }
 
 export async function getAll(req, res) {
