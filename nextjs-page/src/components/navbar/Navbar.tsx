@@ -2,19 +2,17 @@
 
 import Link from "next/link"
 import styles from "./navbar.module.css"
-
 import {
     NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
-    NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
-    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
-
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+import { Button } from "@/components/ui/button"
+
+// Temporal
+const session = true;
+const isAdmin = false;
 
 const NavBar = () => {
     return (
@@ -35,6 +33,14 @@ const NavBar = () => {
                         <Link href="/products" className={navigationMenuTriggerStyle()}>
                             Componentes
                         </Link>
+                        <>
+                            {session ? (
+                                isAdmin && <Link href="/admin" className={navigationMenuTriggerStyle()}>Admin</Link>
+                            ) : (
+                                <Link href="/login" className={navigationMenuTriggerStyle()}>Iniciar sesión</Link>
+                            )}
+                            {session && <Button>Cerrar sesión</Button>}
+                        </>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
