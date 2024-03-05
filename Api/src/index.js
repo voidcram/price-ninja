@@ -6,6 +6,8 @@ import "./models/Change.js";
 // Create tables if they dont exist
 async function syncDatabase() {
     try {
+        // Uncomment for reset all tables
+        // await sequelize.sync({force: true);
         await sequelize.sync();
         console.log('Database synchronized successfully');
     } catch (error) {
