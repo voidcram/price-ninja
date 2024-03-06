@@ -7,7 +7,7 @@ export async function createProduct(req, res) {
   const productData = req.body;
 
   try {
-    const validation = productSchema.validate(req.body);
+    const validation = productSchema.validate(productData);
     if (validation.error) {
       return res.status(400).json(validation.error.details);
     }
@@ -116,9 +116,10 @@ export async function updateProduct(req, res) {
 
 export async function patchProduct(req, res) {
   const { id } = req.params;
+  const productData = req.body;
 
   try {
-    const validation = patchSchema.validate(req.body);
+    const validation = patchSchema.validate(productData);
     if (validation.error) {
       return res.status(400).json(validation.error.details);
     }
@@ -130,7 +131,7 @@ export async function patchProduct(req, res) {
     }
 
     // Apply updates to the product
-    Object.assign(product, req.body);
+    Object.assign(product, productData);
     await product.save();
 
     // Respond with the updated product
