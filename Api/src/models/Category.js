@@ -16,6 +16,8 @@ export const Category = sequelize.define("categories",
   },
   {
     timestamps: false,
+    updatedAt: false,
+    createdAt: 'created_at',
     indexes: [
       {
         unique: false,

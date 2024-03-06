@@ -8,15 +8,15 @@ export const Change = sequelize.define("changes",
       primaryKey: true,
       autoIncrement: true,
     },
-    productId: {
-      type: DataTypes.UUID,
+    product_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: DataTypes.UUIDV4,
+      defaultValue: 0,
     },
     type: {
       type: DataTypes.STRING(20),
       allowNull: false,
-      defaultValue: "0",
+      defaultValue: "unknown",
     },
     old: {
       type: DataTypes.STRING(50),
@@ -32,10 +32,11 @@ export const Change = sequelize.define("changes",
   {
     timestamps: true,
     updatedAt: false,
+    createdAt: 'created_at', 
     indexes: [
       {
         unique: false,
-        fields: ["productId"],
+        fields: ["product_id"],
       },
     ],
   }
