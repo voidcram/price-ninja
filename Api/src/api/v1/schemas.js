@@ -6,11 +6,10 @@ function validateURL(value, helpers) {
     const parsedURL = new URL(value);
     if (parsedURL.hostname === "www.pccomponentes.com") {
       return value; // Return the validated URL
-    } else {
-      throw new Error("URL is not from the allowed domain");
     }
+    throw new Error();
   } catch (error) {
-    return helpers.error("any.invalid");
+    return helpers.error("any.invalid", { message: "url have to be a valid url from PcComponentes domain" });
   }
 }
 
