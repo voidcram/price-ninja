@@ -2,15 +2,15 @@ import express, { json } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import shrinkRay from "@nitedani/shrink-ray-current";
+import logger from 'pino-http';
 import v1Routes from './api/v1/index.js';
 const app = express();
 
+app.use(logger({ autoLogging: false }));
 app.use(json());
-app.use(cors());
-// Security headers
-app.use(helmet());
-// Compression
-app.use(shrinkRay());
+app.use(cors()); 
+app.use(helmet()); // Security headers
+app.use(shrinkRay()); // Compression
 app.disable('x-powered-by');
 
 // version routes
