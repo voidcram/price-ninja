@@ -13,16 +13,28 @@ function validateURL(value, helpers) {
   }
 }
 
-export const updateSchema = Joi.object({
+export const productSchema = Joi.object({
   name: Joi.string().max(50).required(),
   url: Joi.string().uri().custom(validateURL, 'custom validation').required(),
   category: Joi.string().max(30).required(),
   vendor: Joi.string().max(30).required(),
   brand: Joi.string().max(30).required(),
   stock: Joi.boolean().required(),
-  currentPrice: Joi.number().precision(2).required(),
-  originalPrice: Joi.number().precision(2).required(),
-  lowestPrice: Joi.number().precision(2).required()
+  current_price: Joi.number().precision(2).required(),
+  original_price: Joi.number().precision(2).required(),
+  lowest_price: Joi.number().precision(2).required()
+});
+
+export const patchSchema = Joi.object({
+  name: Joi.string().max(50),
+  url: Joi.string().uri().custom(validateURL, 'custom validation'),
+  category: Joi.string().max(30),
+  vendor: Joi.string().max(30),
+  brand: Joi.string().max(30),
+  stock: Joi.boolean(),
+  current_price: Joi.number().precision(2),
+  original_price: Joi.number().precision(2),
+  lowest_price: Joi.number().precision(2)
 });
 
 export const scrapeSchema = Joi.object({
