@@ -58,26 +58,41 @@ export async function getById(req, res) {
   }
 }
 
-// TODO
 export async function getByCategory(req, res) {
-  const { category_id } = req.params;
-  try {
-    const product = await Product.findByPk(category_id);
-    if (!product) return res.status(404).json({ message: "Product not found" });
+  const { id } = req.params;
 
-    res.json(product);
+  try {
+    // Check if the category exists
+    let category = await Category.findByPk(id);
+    if (!category) {
+      return res.status(404).json({ message: "Category doesnt exist"})
+    }
+
+    // Get products of that category
+    const products = await Product.findAll({ where: { category_id: id } });
+
+    // Return the products
+    return res.status(200).json(products);
   } catch (error) {
+    res.log.error(`Error fetching products by category id ${id}: ${error}`)
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
 
-// TODO change this using foreign key now
 export async function getChanges(req, res) {
-  const { product_id } = req.params;
+  const { id } = req.params;
+
   try {
-    const changes = Change.findAll({ where: { product_id } });
-    res.json(changes);
+    const product = await Product.findByPk(id);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    const changes = await Change.findAll({ where: { product_id: id } });
+
+    return res.status(200).json(changes);
   } catch (error) {
+    res.log.error(`Error fetching product changes for id ${id}: ${error}`)
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
