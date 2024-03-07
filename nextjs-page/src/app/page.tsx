@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Home = () => {
   return <div className={styles.container}>
     <div className={styles.textContainer}>
-      <h1 className={styles.title}>Price Ninja</h1>
+      <h1 className={styles.title}>Bienvenido a Price Ninja</h1>
       <p className={styles.desc}>
         En Price Ninja, nos apasiona la tecnología y queremos
         ayudarte a encontrar los componentes perfectos para
