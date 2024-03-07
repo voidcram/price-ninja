@@ -46,7 +46,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Example Product\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5ss\",\r\n  \"category\": \"Example Category\",\r\n  \"vendor\": \"Example Vendor\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}\r\n",
+							"raw": "{\r\n  \"name\": \"Example Product\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5ss\",\r\n  \"category\": \"Example Category\",\r\n  \"seller\": \"Example seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -145,7 +145,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Example Product 3\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\r\n  \"category\": \"Example Category\",\r\n  \"vendor\": \"Example Vendor\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}",
+							"raw": "{\r\n  \"name\": \"Example Product 3\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\r\n  \"category\": \"Example Category\",\r\n  \"seller\": \"Example seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

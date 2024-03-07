@@ -11,7 +11,7 @@ export const Product = sequelize.define("products",
       autoIncrement: true,
     },
     name: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(100),
       allowNull: false,
       defaultValue: "0",
     },
@@ -20,7 +20,7 @@ export const Product = sequelize.define("products",
       allowNull: false,
       defaultValue: "0",
     },
-    vendor: {
+    seller: {
       type: DataTypes.STRING(30),
       allowNull: false,
       defaultValue: "0",

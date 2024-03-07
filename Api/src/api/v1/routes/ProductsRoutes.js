@@ -3,12 +3,13 @@ import * as productsController from "../controllers/ProductsController.js";
 
 const router = express.Router();
 
-// Routes for products
-
 // Create new product
 router.post('/', productsController.createProduct);
 
-// Read product/s
+// Scrape a product
+router.post('/scrape', productsController.scrapeProduct);
+
+// Get product/s
 router.get('/', productsController.getAll);
 router.get('/:id', productsController.getById);
 
