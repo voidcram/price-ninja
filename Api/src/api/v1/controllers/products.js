@@ -1,6 +1,4 @@
-import { Change } from "../../../models/Change.js";
-import { Product } from "../../../models/Product.js";
-import { Category } from "../../../models/Category.js";
+import { Change, Product, Category } from "../../../models/index.js"
 import { productSchema, patchSchema } from "../schemas/schemas.js";
 
 export async function createProduct(req, res) {
@@ -24,7 +22,7 @@ export async function createProduct(req, res) {
       return res.status(404).json({ message: "Category doesnt exist"})
     }
 
-    // Add the category ID to the product data, and change the key to category_id 
+    // Add the category ID to the product data, and change the key to category_id
     productData.category_id = category.id;
     delete productData.category;
 
