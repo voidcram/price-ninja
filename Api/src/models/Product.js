@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../database.js";
+import { sequelize } from "../config/database.js";
 import { Change } from "./Change.js";
 import { Category } from "./Category.js";
 
@@ -58,9 +58,9 @@ export const Product = sequelize.define("products",
   },
   {
     timestamps: true,
-    createdAt: 'created_at', 
+    createdAt: 'created_at',
     updatedAt: 'updated_at',
-    
+
     indexes: [
       {
         unique: false,

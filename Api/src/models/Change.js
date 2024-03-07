@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../database.js";
+import { sequelize } from "../config/database.js";
 
 export const Change = sequelize.define("changes",
   {
@@ -32,7 +32,7 @@ export const Change = sequelize.define("changes",
   {
     timestamps: true,
     updatedAt: false,
-    createdAt: 'created_at', 
+    createdAt: 'created_at',
     indexes: [
       {
         unique: false,

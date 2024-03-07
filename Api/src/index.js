@@ -1,23 +1,20 @@
-import app from "./app.js";
-import { sequelize } from "./database.js";
-import "./models/Product.js";
-import "./models/Change.js";
-import "./models/Category.js";
+import express, { json } from "express";
+import cors from "cors";
+import helmet from "helmet";
+import shrinkRay from "@nitedani/shrink-ray-current";
+import logger from 'pino-http';
+import v1Routes from './api/v1/index.js';
+const app = express();
 
-// Create tables if they dont exist
-async function syncDatabase() {
-    try {
-        // Uncomment for reset all tables
-        // await sequelize.sync({force: true});
-        await sequelize.sync();
-        console.log('Database synchronized successfully');
-    } catch (error) {
-        console.error('Unable to sync database:', error);
-        process.exit(1);
-    }
-}
+app.use(logger({ autoLogging: false }));
+app.use(json());
+app.use(cors());
+app.use(helmet()); // Security headers
+app.use(shrinkRay()); // Compression
+app.disable('x-powered-by');
 
-syncDatabase();
+// version routes
+app.use('/api/v1', v1Routes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
