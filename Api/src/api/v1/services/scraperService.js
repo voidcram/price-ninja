@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 
 const scrape = async (url) => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch();
   try {
     const page = await browser.newPage();
 
@@ -20,6 +20,7 @@ const scrape = async (url) => {
       if (offers.hasOwnProperty("offers")) offers = offers.offers;
 
       const priceWithoutIVA = offers.price / (1 + 21 / 100);
+      priceWithoutIVA = parseFloat(priceWithoutIVA.toFixed(2));
       const inStock = offers.availability.replace("https://schema.org/", "") == "InStock"
 
       return {
@@ -29,7 +30,9 @@ const scrape = async (url) => {
         category: schemaJSON.category,
         brand: schemaJSON.brand.name,
         stock: inStock,
-        current_price: parseFloat(priceWithoutIVA.toFixed(2)),
+        current_price: priceWithoutIVA,
+        original_price: priceWithoutIVA,
+        lowest_price: priceWithoutIVA
       };
     });
 

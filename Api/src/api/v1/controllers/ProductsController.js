@@ -59,9 +59,6 @@ export async function scrapeProduct(req, res) {
       category = await Category.create({ name: scrapedData.category });
     }
 
-    // Add the original price and lowest price keys and set the value of the current price
-    scrapedData.original_price = scrapedData.current_price
-    scrapedData.lowest_price = scrapedData.current_price
     // Add the category ID to the product data, and change the key to category_id
     scrapedData.category_id = category.id;
     delete scrapedData.category;
@@ -77,7 +74,8 @@ export async function scrapeProduct(req, res) {
 
 export async function getAll(req, res) {
   try {
-    const products = await Product.findAll();
+    const products = await Product.findAll({ include: {model: Category}, attributes: { exclude: ['category_id'] } });
+
     res.json(products);
   } catch (error) {
     res.log.error(`Error getting all products: ${error}`);
