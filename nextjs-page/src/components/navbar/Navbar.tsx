@@ -5,10 +5,11 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/compon
 import Links from "./links/Links";
 import Link from "next/link";
 
+
 const NavBar = () => {
     return (
         <div className={styles.container}>
-            <Link href="/" className={styles.logo}>🐱‍👤PriceNinja</Link>
+            <Link href="/" className={styles.logo}>🐱‍👤 Price Ninja</Link>
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
