@@ -8,19 +8,11 @@ import { useState } from "react";
 
 const links = [
     {
-        title: "Inicio",
-        path: "/",
-    },
-    {
-        title: "Sobre nosotros",
+        title: "About Us",
         path: "/about",
     },
     {
-        title: "Contacto",
-        path: "/contact",
-    },
-    {
-        title: "Componentes",
+        title: "Products",
         path: "/products",
     },
 ];
@@ -29,8 +21,7 @@ const Links = () => {
     const [open, setOpen] = useState(false);
 
     // Pruebas
-    const session = true;
-    const isAdmin = true;
+    const session = false;
 
     return (
         <div>
@@ -41,17 +32,13 @@ const Links = () => {
                     </Link>
                 ))}
                 {session ? (
-                    isAdmin && (
-                        <Link href="/admin" className={navigationMenuTriggerStyle()}>
-                            Admin
-                        </Link>
-                    )
+                    <Button>Log Out</Button>
                 ) : (
-                    <Link href="/login" className={navigationMenuTriggerStyle()}>
-                        Iniciar sesión
-                    </Link>
+                    <>
+                        <Button variant="ghost" className={styles.loginButton}>Sign in</Button>
+                        <Button>Sign Up</Button>
+                    </>
                 )}
-                {session && <Button>Cerrar sesión</Button>}
             </div>
             <Button className={styles.menuButton} onClick={() => setOpen((prev) => !prev)}>Menú</Button>
             {open && (
