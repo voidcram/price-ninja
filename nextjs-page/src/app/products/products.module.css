@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.search {
+    flex: 1;
+    position: relative;
+}
+
+.component {
+    width: 30%;
+}
+
+
+@media screen and (max-width: 1280px) {
+    .component {
+        width: 45%;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .component {
+        width: 100%;
+    }
+
+}
