@@ -1,6 +1,7 @@
 import express from 'express';
 import paginate from 'express-paginate';
 import * as productsController from "../controllers/ProductsController.js";
+import apicache from 'apicache-plus'
 
 const router = express.Router();
 
@@ -11,14 +12,14 @@ router.post('/', productsController.createProduct);
 router.post('/scrape', productsController.scrapeProduct);
 
 // Get product/s
-router.get('/', paginate.middleware(10, 50), productsController.getAll);
-router.get('/:id', productsController.getById);
+router.get('/', paginate.middleware(10, 50), apicache('1 hour'), productsController.getAll);
+router.get('/:id', apicache('1 hour'), productsController.getById);
 
 // Get products by category
-router.get('/categories/:id', paginate.middleware(10, 50), productsController.getByCategory);
+router.get('/categories/:id', paginate.middleware(10, 50), apicache('1 hour'), productsController.getByCategory);
 
 // Get product changes (i do it separated cause overtime it gonna scale to many changes)
-router.get('/:id/changes', paginate.middleware(10, 50), productsController.getChanges);
+router.get('/:id/changes', paginate.middleware(10, 50), apicache('1 hour'), productsController.getChanges);
 
 // Update product
 router.put('/:id', productsController.updateProduct)
