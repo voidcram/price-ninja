@@ -1,6 +1,6 @@
 import { Change, Product, Category } from "../../../models/index.js";
-import { productSchema, patchSchema, scrapeSchema } from "../schemas/schemas.js";
-import scraperService from '../services/scraperService.js';
+import { productSchema, patchSchema, scrapeSchema} from "../schemas/schemas.js";
+import scraperService from "../services/scraperService.js";
 
 export async function createProduct(req, res) {
   const productData = req.body;
@@ -12,7 +12,9 @@ export async function createProduct(req, res) {
     }
 
     // Check if the category exists
-    let category = await Category.findOne({ where: { name: productData.category } });
+    let category = await Category.findOne({
+      where: { name: productData.category },
+    });
     if (!category) {
       return res.status(404).json({ message: "Category doesnt exist" });
     }
@@ -54,7 +56,9 @@ export async function scrapeProduct(req, res) {
     const scrapedData = await scraperService.scrape(url);
 
     // Check if the category exists
-    let category = await Category.findOne({ where: { name: scrapedData.category } });
+    let category = await Category.findOne({
+      where: { name: scrapedData.category },
+    });
     if (!category) {
       category = await Category.create({ name: scrapedData.category });
     }
@@ -74,9 +78,25 @@ export async function scrapeProduct(req, res) {
 
 export async function getAll(req, res) {
   try {
-    const products = await Product.findAll({ include: {model: Category}, attributes: { exclude: ['category_id'] } });
+    const { count, rows: products } = await Product.findAndCountAll({
+      limit: req.query.limit,
+      offset: req.skip,
+      include: Category,
+      attributes: {
+        exclude: ["category_id"],
+      },
+    });
 
-    res.json(products);
+    const totalProducts = count;
+    const currentPage = req.query.page;
+    const pages = Math.ceil(totalProducts / req.query.limit);
+
+    return res.json({
+      totalProducts,
+      pages,
+      currentPage,
+      data: products,
+    });
   } catch (error) {
     res.log.error(`Error getting all products: ${error}`);
     return res.status(500).json({ message: "Internal Server Error" });
@@ -86,7 +106,12 @@ export async function getAll(req, res) {
 export async function getById(req, res) {
   const { id } = req.params;
   try {
-    const product = await Product.findByPk(id);
+    const product = await Product.findByPk(id, {
+      include: Category,
+      attributes: {
+        exclude: ["category_id"],
+      },
+    });
     if (!product) return res.status(404).json({ message: "Product not found" });
 
     res.json(product);
@@ -107,10 +132,27 @@ export async function getByCategory(req, res) {
     }
 
     // Get products of that category
-    const products = await Product.findAll({ where: { category_id: id } });
+    const { count, rows: products } = await Product.findAndCountAll({
+      limit: req.query.limit,
+      offset: req.skip,
+      where: { category_id: id },
+      include: Category,
+      attributes: {
+        exclude: ["category_id"],
+      },
+    });
 
-    // Return the products
-    return res.status(200).json(products);
+    const totalProducts = count;
+    const currentPage = req.query.page;
+    const pages = Math.ceil(totalProducts / req.query.limit);
+
+    return res.json({
+      totalProducts,
+      pages,
+      currentPage,
+      data: products,
+    });
+
   } catch (error) {
     res.log.error(`Error fetching products by category id ${id}: ${error}`);
     return res.status(500).json({ message: "Internal Server Error" });
@@ -126,9 +168,23 @@ export async function getChanges(req, res) {
       return res.status(404).json({ message: "Product not found" });
     }
 
-    const changes = await Change.findAll({ where: { product_id: id } });
+    const { count, rows: changes } = await Change.findAndCountAll({
+      limit: req.query.limit,
+      offset: req.skip,
+      where: { product_id: id }
+    });
 
-    return res.status(200).json(changes);
+    const totalChanges = count;
+    const currentPage = req.query.page;
+    const pages = Math.ceil(totalChanges / req.query.limit);
+
+    return res.json({
+      totalChanges,
+      pages,
+      currentPage,
+      data: changes,
+    });
+
   } catch (error) {
     res.log.error(`Error fetching product changes for id ${id}: ${error}`);
     return res.status(500).json({ message: "Internal Server Error" });
@@ -145,7 +201,9 @@ export async function updateProduct(req, res) {
       return res.status(400).json(validation.error.details);
     }
 
-    let category = await Category.findOne({ where: { name: productData.category } });
+    let category = await Category.findOne({
+      where: { name: productData.category },
+    });
     if (!category) {
       return res.status(404).json({ message: "Category doesnt exist" });
     }

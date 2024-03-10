@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import shrinkRay from "@nitedani/shrink-ray-current";
 import logger from 'pino-http';
+
 import v1Routes from './api/v1/index.js';
 const app = express();
 

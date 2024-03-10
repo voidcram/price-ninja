@@ -1,4 +1,5 @@
 import express from 'express';
+import paginate from 'express-paginate';
 import * as productsController from "../controllers/ProductsController.js";
 
 const router = express.Router();
@@ -10,14 +11,14 @@ router.post('/', productsController.createProduct);
 router.post('/scrape', productsController.scrapeProduct);
 
 // Get product/s
-router.get('/', productsController.getAll);
+router.get('/', paginate.middleware(10, 50), productsController.getAll);
 router.get('/:id', productsController.getById);
 
 // Get products by category
-router.get('/category/:id', productsController.getByCategory);
+router.get('/categories/:id', paginate.middleware(10, 50), productsController.getByCategory);
 
 // Get product changes (i do it separated cause overtime it gonna scale to many changes)
-router.get('/:id/changes', productsController.getChanges);
+router.get('/:id/changes', paginate.middleware(10, 50), productsController.getChanges);
 
 // Update product
 router.put('/:id', productsController.updateProduct)

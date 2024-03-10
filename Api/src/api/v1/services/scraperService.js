@@ -19,7 +19,7 @@ const scrape = async (url) => {
       // if have nested offers key get that
       if (offers.hasOwnProperty("offers")) offers = offers.offers;
 
-      const priceWithoutIVA = offers.price / (1 + 21 / 100);
+      let priceWithoutIVA = offers.price / (1 + 21 / 100);
       priceWithoutIVA = parseFloat(priceWithoutIVA.toFixed(2));
       const inStock = offers.availability.replace("https://schema.org/", "") == "InStock"
 
