@@ -18,6 +18,4 @@ app.disable('x-powered-by');
 app.use('/api/v1', v1Routes);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, function () {
-  console.log("API running on port:", PORT);
-});
+app.listen(PORT, () => console.log("API running on port:", PORT));
