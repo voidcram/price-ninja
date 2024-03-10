@@ -1,6 +1,8 @@
+import apicache from "apicache-plus";
 import { Change, Product, Category } from "../models/index.js";
-import { productSchema, patchSchema, scrapeSchema} from "../schemas/schemas.js";
+import { productSchema, patchSchema, scrapeSchema } from "../schemas/schemas.js";
 import scraperService from "../services/scraperService.js";
+import logger from "../../../config/logger.js";
 
 export async function createProduct(req, res) {
   const productData = req.body;
@@ -31,9 +33,12 @@ export async function createProduct(req, res) {
 
     const newProduct = await Product.create(productData);
 
+    // Clear the cache key of products for get new products instead of getting from cache
+    apicache.clear("ProductList");
+
     return res.status(201).json(newProduct);
   } catch (error) {
-    res.log.error(`Error creating product: ${error}`);
+    logger.error(error, "Error creating product");
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
@@ -71,12 +76,14 @@ export async function scrapeProduct(req, res) {
 
     return res.status(201).json(newProduct);
   } catch (error) {
-    res.log.error(`Error scraping product: ${error}`);
+    logger.error(error, "Error scraping product");
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
 
 export async function getAll(req, res) {
+  req.apicacheGroup = "ProductList";
+
   try {
     const { count, rows: products } = await Product.findAndCountAll({
       limit: req.query.limit,
@@ -98,12 +105,13 @@ export async function getAll(req, res) {
       data: products,
     });
   } catch (error) {
-    res.log.error(`Error getting all products: ${error}`);
+    logger.error(error, "Error getting all products");
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
 
 export async function getById(req, res) {
+  req.apicacheGroup = "ProductList";
   const { id } = req.params;
   try {
     const product = await Product.findByPk(id, {
@@ -116,12 +124,13 @@ export async function getById(req, res) {
 
     res.json(product);
   } catch (error) {
-    res.log.error(`Error product by id ${id}: ${error}`);
+    logger.error(error, `Error getting product id ${id}`);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
 
 export async function getByCategory(req, res) {
+  req.apicacheGroup = "ProductList";
   const { id } = req.params;
 
   try {
@@ -152,14 +161,14 @@ export async function getByCategory(req, res) {
       currentPage,
       data: products,
     });
-
   } catch (error) {
-    res.log.error(`Error fetching products by category id ${id}: ${error}`);
+    logger.error(error, `Error fetching products by category id ${id}`);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
 
 export async function getChanges(req, res) {
+  req.apicacheGroup = "ProductList";
   const { id } = req.params;
 
   try {
@@ -171,7 +180,7 @@ export async function getChanges(req, res) {
     const { count, rows: changes } = await Change.findAndCountAll({
       limit: req.query.limit,
       offset: req.skip,
-      where: { product_id: id }
+      where: { product_id: id },
     });
 
     const totalChanges = count;
@@ -184,9 +193,8 @@ export async function getChanges(req, res) {
       currentPage,
       data: changes,
     });
-
   } catch (error) {
-    res.log.error(`Error fetching product changes for id ${id}: ${error}`);
+    logger.error(error, `Error fetching products changes for id ${id}`);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
@@ -213,12 +221,14 @@ export async function updateProduct(req, res) {
     // Return updated product incase it got updated
     if (updated) {
       const updatedProduct = await Product.findOne({ where: { id } });
+      // Clear the cache key of products for get new products instead of getting from cache
+      apicache.clear("ProductList");
       return res.status(200).json(updatedProduct);
     }
 
     return res.status(404).json({ message: "Product not found" });
   } catch (error) {
-    res.log.error(`Error updating product with id ${id}: ${error}`);
+    logger.error(error, `Error updating product with id ${id}`);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
@@ -243,10 +253,13 @@ export async function patchProduct(req, res) {
     Object.assign(product, productData);
     await product.save();
 
+    // Clear the cache key of products for get new products instead of getting from cache
+    apicache.clear("ProductList");
+
     // Respond with the updated product
     return res.status(200).json(product);
   } catch (error) {
-    res.log.error(`Error patching product with id ${id}: ${error}`);
+    logger.error(error, `Error patching product with id ${id}`);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
@@ -256,11 +269,15 @@ export async function deleteProduct(req, res) {
 
   try {
     const deleted = await Product.destroy({ where: { id } });
-    if (deleted) return res.status(204).send();
+    if (deleted) {
+      // Clear the cache key of products for get new products instead of getting from cache
+      apicache.clear("ProductList");
+      return res.status(204).send();
+    }
 
     return res.status(404).json({ message: "Product not found" });
   } catch (error) {
-    res.log.error(`Error deleting product with id ${id}: ${error}`);
+    logger.error(error, `Error deleting product with id ${id}`);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
