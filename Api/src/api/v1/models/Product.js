@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../config/database.js";
+import { sequelize } from "../../../config/database.js";
 import { Change } from "./Change.js";
 import { Category } from "./Category.js";
 

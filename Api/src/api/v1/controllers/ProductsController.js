@@ -1,4 +1,4 @@
-import { Change, Product, Category } from "../../../models/index.js";
+import { Change, Product, Category } from "../models/index.js";
 import { productSchema, patchSchema, scrapeSchema} from "../schemas/schemas.js";
 import scraperService from "../services/scraperService.js";
 
