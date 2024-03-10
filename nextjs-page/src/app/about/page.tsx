@@ -4,8 +4,8 @@ const AboutPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
-        <h2 className={styles.subtitle}>About Price Ninja</h2>
         <h1 className={styles.title}>Your Destination to Save Time & Money</h1>
+        <h2 className={styles.subtitle}>About Price Ninja</h2>
         <p className={styles.desc}>
           <p>
             <strong className={styles.descTitle}>Explore & Track:</strong>
