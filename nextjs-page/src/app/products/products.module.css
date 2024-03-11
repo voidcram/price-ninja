@@ -1,23 +1,30 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 10px;
+    flex-direction: row;
 }
 
 .search {
     flex: 1;
     position: relative;
+    margin-left: 350px;
+    margin-bottom: 40px;
 }
 
 .component {
     width: 30%;
 }
 
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
 @media screen and (max-width: 1280px) {
     .component {
-        width: 45%;
+        width: 30%;
     }
 
 }

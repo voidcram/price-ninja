@@ -4,21 +4,24 @@ import SearchBar from "@/components/searchBar/searchBar";
 
 const ComponentsPage = () => {
   return (
-    <div className={styles.container}>
+    <div>
+      <h3 className={styles.title}>Our Collection Of Products</h3>
       <div className={styles.search}>
         <SearchBar />
       </div>
-      <div className={styles.component}>
-        <ComponentCard />
-      </div>
-      <div className={styles.component}>
-        <ComponentCard />
-      </div>
-      <div className={styles.component}>
-        <ComponentCard />
-      </div>
-      <div className={styles.component}>
-        <ComponentCard />
+      <div className={styles.container}>
+        <div className={styles.component}>
+          <ComponentCard />
+        </div>
+        <div className={styles.component}>
+          <ComponentCard />
+        </div>
+        <div className={styles.component}>
+          <ComponentCard />
+        </div>
+        <div className={styles.component}>
+          <ComponentCard />
+        </div>
       </div>
     </div>
   )
