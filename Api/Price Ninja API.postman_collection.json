@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "24a9848e-064a-4d09-88f6-bd1cb91d17ba",
+		"name": "Price Ninja API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16447291"
+	},
+	"item": [
+		{
+			"name": "Scrape Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/alurin-flex-advance-intel-core-i5-1155g7-16gb-1tb-ssd-156\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/v1/products/scrape",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"scrape"
+					]
+				},
+				"description": "Allows users to scrape product data from a given URL (It only accepts urls from Pccomponentes at the moment)"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Example Product\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\r\n  \"category\": \"Example Category\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/v1/products",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				},
+				"description": "Create a new product in the database. With the necessary product information in the request body, including the product name, url, seller, category, brand, stock availability, current price, original price, and lowest price. Before creating the product, the endpoint validates the input data and ensures that the required fields are provided. If the category specified does not exist, the endpoint returns a 404 error indicating that the category does not exist. If a product with the same URL already exists, the endpoint returns a 409 error indicating that the product already exists. Upon successful creation, the endpoint returns the newly created product data along with a 201 status code. If any errors occur during the creation process, appropriate error messages are returned along with the corresponding status codes."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"request": {
+				"auth": {
+					"type": "inherit"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/v1/products",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				},
+				"description": "This endpoint allows users to retrieve a list of all products stored in the database. It accepts a GET request without any parameters. Upon successful retrieval, the endpoint returns a list of products along with their details, including the product ID, name, URL, seller, category, brand, stock availability, current price, original price, and lowest price. The response is paginated to improve performance and prevent overwhelming the client with a large amount of data. Additionally, the endpoint provides sorting and filtering options to allow users to customize the returned results based on their preferences. If there are no products available in the database, the endpoint returns an empty list with a 200 status code. If any errors occur during the retrieval process, appropriate error messages are returned along with the corresponding status codes."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/v1/products/1",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1"
+					]
+				},
+				"description": "This endpoint retrieves a specific product from the database based on its unique identifier (ID). It accepts a GET request with the product ID as a parameter in the URL path. Upon successful retrieval, the endpoint returns detailed information about the product, including its name, URL, vendor, category, brand, stock availability, current price, original price, and lowest price. If the product with the specified ID is not found in the database, the endpoint returns a 404 status code along with an appropriate error message. Additionally, if any errors occur during the retrieval process, the endpoint returns an error response with the corresponding status code and message."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products By Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/v1/products/categories/1",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"categories",
+						"1"
+					]
+				},
+				"description": "This endpoint retrieves products belonging to a specific category from the database. It accepts a GET request with the category ID as a parameter in the URL path. Upon receiving the request, the endpoint queries the database for all products associated with the specified category. If products are found, the endpoint returns detailed information about each product, including its name, URL, vendor, brand, stock availability, current price, original price, and lowest price. If no products are found for the given category ID, the endpoint returns an empty response with a 200 status code. However, if an error occurs during the retrieval process, the endpoint returns an error response with the corresponding status code and message."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product Changes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/v1/products/1/changes",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1",
+						"changes"
+					]
+				},
+				"description": "This endpoint retrieves the changes made to a specific product over time. It accepts a GET request with the product ID as a parameter in the URL path. Upon receiving the request, the endpoint queries the database for all changes associated with the specified product. Each change represents a modification to the product, such as updates to its attributes or price adjustments. The endpoint returns a list of changes, including details such as the type of change, the previous value, and the new value. If no changes are found for the given product ID, the endpoint returns an empty response with a 200 status code. However, if an error occurs during the retrieval process, the endpoint returns an error response with the corresponding status code and message."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Example Product 3\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\r\n  \"category\": \"Sobremesa\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/v1/products/1",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1"
+					]
+				},
+				"description": "This endpoint allows updating an existing product by its ID. It accepts a PUT request with the product ID as a parameter in the URL path and the updated product data in the request body. The endpoint first validates the request payload to ensure that it contains valid data for updating the product. If the payload is valid, the endpoint attempts to locate the product in the database by its ID. If the product is found, it updates the product attributes with the new values provided in the request body. After successfully updating the product, the endpoint returns a response with the updated product data and a 200 status code. If the product ID is not found in the database, the endpoint returns a 404 status code with an error message indicating that the product was not found. In case of any errors during the update process, such as invalid input data or database errors, the endpoint returns an error response with the appropriate status code and message."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/dlss3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/v1/products/1",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1"
+					]
+				},
+				"description": "This PATCH endpoint allows for updating specific fields of an existing product by its ID. It accepts a PATCH request with the product ID as a parameter in the URL path and the fields to be updated in the request body. Unlike the PUT endpoint, which requires sending the full object for updating, this endpoint allows for partial updates by specifying only the fields that need to be changed. The endpoint first validates the request payload to ensure that it contains valid data for updating the product. If the payload is valid, the endpoint attempts to locate the product in the database by its ID. If the product is found, it updates the specified fields with the new values provided in the request body. After successfully updating the product, the endpoint returns a response with the updated product data and a 200 status code. If the product ID is not found in the database, the endpoint returns a 404 status code with an error message indicating that the product was not found. In case of any errors during the update process, such as invalid input data or database errors, the endpoint returns an error response with the appropriate status code and message."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/v1/products/2",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"2"
+					]
+				},
+				"description": "Allows for deleting an existing product by its ID. It accepts a DELETE request with the product ID as a parameter in the URL path. The endpoint first attempts to locate the product in the database by its ID. If the product is found, it removes the product from the database permanently. After successful deletion, the endpoint returns a response with a 204 status code, indicating that the product was deleted successfully and there is no content to return. If the product ID is not found in the database, the endpoint returns a 404 status code with an error message indicating that the product was not found. In case of any errors during the deletion process, such as database errors, the endpoint returns an error response with the appropriate status code and message."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://localhost:4000",
+			"type": "string"
+		}
+	]
+}

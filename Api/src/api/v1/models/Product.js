@@ -1,17 +1,17 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../database.js";
+import { sequelize } from "../../../config/database.js";
 import { Change } from "./Change.js";
+import { Category } from "./Category.js";
 
-export const Product = sequelize.define(
-  "products",
+export const Product = sequelize.define("products",
   {
     id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       primaryKey: true,
-      defaultValue: DataTypes.UUIDV4, // Assign UUID v4 as the default value for 'id'
+      autoIncrement: true,
     },
     name: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(100),
       allowNull: false,
       defaultValue: "0",
     },
@@ -20,10 +20,15 @@ export const Product = sequelize.define(
       allowNull: false,
       defaultValue: "0",
     },
-    vendor: {
+    seller: {
       type: DataTypes.STRING(30),
       allowNull: false,
       defaultValue: "0",
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
     },
     brand: {
       type: DataTypes.STRING(30),
@@ -35,17 +40,17 @@ export const Product = sequelize.define(
       allowNull: false,
       defaultValue: 0,
     },
-    currentPrice: {
+    current_price: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       defaultValue: 0,
     },
-    originalPrice: {
+    original_price: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       defaultValue: 0,
     },
-    lowestPrice: {
+    lowest_price: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       defaultValue: 0,
@@ -53,8 +58,22 @@ export const Product = sequelize.define(
   },
   {
     timestamps: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+
+    indexes: [
+      {
+        unique: false,
+        fields: ["id"],
+      },
+      {
+        unique: false,
+        fields: ["url"],
+      },
+    ],
   }
 );
 
-Change.belongsTo(Product, { foreignKey: 'productId' });
-Product.hasMany(Change, { foreignKey: 'productId' });
+Change.belongsTo(Product, { foreignKey: 'product_id' });
+Product.hasMany(Change, { foreignKey: 'product_id' });
+Product.belongsTo(Category, { foreignKey: 'category_id' });

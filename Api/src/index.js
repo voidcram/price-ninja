@@ -1,22 +1,20 @@
-import app from "./app.js";
-import { sequelize } from "./database.js";
-import "./models/Product.js";
-import "./models/Change.js";
+import express, { json } from "express";
+import cors from "cors";
+import helmet from "helmet";
+import shrinkRay from "@nitedani/shrink-ray-current";
+import logger from './config/logger.js';
 
-// Create tables if they dont exist
-async function syncDatabase() {
-    try {
-        await sequelize.sync();
-        console.log('Database synchronized successfully');
-    } catch (error) {
-        console.error('Unable to sync database:', error);
-        process.exit(1);
-    }
-}
+import v1Routes from './api/v1/index.js';
+const app = express();
 
-syncDatabase();
+app.use(json());
+app.use(cors());
+app.use(helmet()); // Security headers
+app.use(shrinkRay()); // Compression
+app.disable('x-powered-by');
+
+// version routes
+app.use('/api/v1', v1Routes);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, function () {
-  console.log("API running on port:", PORT);
-});
+app.listen(PORT, () => logger.info(`API running on port: ${PORT}`));
