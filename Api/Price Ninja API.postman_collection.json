@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "24a9848e-064a-4d09-88f6-bd1cb91d17ba",
+		"_postman_id": "d4e70e9c-2bb7-40be-8fdb-06835d28b457",
 		"name": "Price Ninja API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16447291"
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/alurin-flex-advance-intel-core-i5-1155g7-16gb-1tb-ssd-156\"\r\n}",
+					"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/asus-tuf-gaming-f15-fx507zc4-hn002-intel-core-i7-12700h-16gb-512gb-ssd-rtx-3050-156\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Example Product\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\r\n  \"category\": \"Example Category\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}\r\n",
+					"raw": "{\r\n  \"name\": \"Example Product\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-s\",\r\n  \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"img\": \"https://img.pccomponentes.com/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"category\": \"portatiles\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -137,7 +137,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseurl}}/api/v1/products/1/changes",
+					"raw": "{{baseurl}}/api/v1/products/changes/1",
 					"host": [
 						"{{baseurl}}"
 					],
@@ -145,8 +145,8 @@
 						"api",
 						"v1",
 						"products",
-						"1",
-						"changes"
+						"changes",
+						"1"
 					]
 				},
 				"description": "This endpoint retrieves the changes made to a specific product over time. It accepts a GET request with the product ID as a parameter in the URL path. Upon receiving the request, the endpoint queries the database for all changes associated with the specified product. Each change represents a modification to the product, such as updates to its attributes or price adjustments. The endpoint returns a list of changes, including details such as the type of change, the previous value, and the new value. If no changes are found for the given product ID, the endpoint returns an empty response with a 200 status code. However, if an error occurs during the retrieval process, the endpoint returns an error response with the corresponding status code and message."
