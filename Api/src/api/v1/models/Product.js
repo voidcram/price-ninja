@@ -20,6 +20,16 @@ export const Product = sequelize.define("products",
       allowNull: false,
       defaultValue: "0",
     },
+    thumb: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+      defaultValue: "0",
+    },
+    img: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+      defaultValue: "0",
+    },
     seller: {
       type: DataTypes.STRING(30),
       allowNull: false,

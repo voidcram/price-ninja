@@ -22,10 +22,16 @@ const scrape = async (url) => {
       let priceWithoutIVA = offers.price / (1 + 21 / 100);
       priceWithoutIVA = parseFloat(priceWithoutIVA.toFixed(2));
       const inStock = offers.availability.replace("https://schema.org/", "") == "InStock"
+      // replace the subdomain and remove the width params of the url for get the full image
+      const img = schemaJSON.image.replace("thumb", "img").replace(/\/w-\d+-\d+\//, "/");
+      // replace width and height with 150
+      const thumb = schemaJSON.image.replace(/\/w-\d+-\d+\//, "/w-150-150/")
 
       return {
         name: schemaJSON.name,
         url: schemaJSON.url,
+        thumb,
+        img,
         seller: offers.offeredBy,
         category: schemaJSON.category,
         brand: schemaJSON.brand.name,

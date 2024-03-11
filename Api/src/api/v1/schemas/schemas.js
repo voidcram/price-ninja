@@ -2,9 +2,10 @@ import Joi from "joi";
 
 // Check if its a url of PcComponentes
 function validateURL(value, helpers) {
+  const validURLS = ["www.pccomponentes.com","thumb.pccomponentes.com","img.pccomponentes.com"];
   try {
     const parsedURL = new URL(value);
-    if (parsedURL.hostname === "www.pccomponentes.com") {
+    if (validURLS.indexOf(parsedURL !== -1)) {
       return value; // Return the validated URL
     }
     throw new Error();
@@ -16,6 +17,8 @@ function validateURL(value, helpers) {
 export const productSchema = Joi.object({
   name: Joi.string().max(50).required(),
   url: Joi.string().uri().custom(validateURL, 'custom validation').required(),
+  thumb: Joi.string().uri().custom(validateURL, 'custom validation').required(),
+  img: Joi.string().uri().custom(validateURL, 'custom validation').required(),
   category: Joi.string().max(30).required(),
   seller: Joi.string().max(30).required(),
   brand: Joi.string().max(30).required(),
@@ -28,6 +31,8 @@ export const productSchema = Joi.object({
 export const patchSchema = Joi.object({
   name: Joi.string().max(50),
   url: Joi.string().uri().custom(validateURL, 'custom validation'),
+  thumb: Joi.string().uri().custom(validateURL, 'custom validation'),
+  img: Joi.string().uri().custom(validateURL, 'custom validation'),
   category: Joi.string().max(30),
   seller: Joi.string().max(30),
   brand: Joi.string().max(30),
