@@ -74,6 +74,9 @@ export async function scrapeProduct(req, res) {
 
     const newProduct = await Product.create(scrapedData);
 
+    // Clear the cache key of products for get new products instead of getting from cache
+    apicache.clear("ProductList");
+
     return res.status(201).json(newProduct);
   } catch (error) {
     logger.error(error, "Error scraping product");
