@@ -5,7 +5,7 @@
     border-radius: 4px;
     overflow: hidden;
     position: relative;
-    width: 100%;
+    width: 85%;
     margin: auto;
 }
 
@@ -19,11 +19,4 @@
 .searchButton {
     padding: 8px 16px;
     border: none;
-}
-
-
-@media screen and (max-width: 768px) {
-    .searchForm {
-        margin: 10px;
-    }
 }

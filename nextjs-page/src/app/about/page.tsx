@@ -25,7 +25,7 @@ const AboutPage = () => {
           <br />
           <p>
             Don't miss out on any offer. Receive notifications when the products
-            products you have chosen go down in price.
+            you have chosen go down in price.
           </p>
           <br />
           <p>
