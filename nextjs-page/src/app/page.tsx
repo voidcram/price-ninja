@@ -1,33 +1,28 @@
-import styles from './home.module.css';
 import { Button } from "@/components/ui/button";
-import { GitHubLogoIcon } from '@radix-ui/react-icons';
-import Link from 'next/link';
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 const Home = () => {
-  return <div className={styles.container}>
-    <div className={styles.textContainer}>
-      <h1 className={styles.title}>Your Ultimate Bargain Hunter</h1>
-      <h3 className={styles.subtitle}>Find the Best Deals Online and Save Big with Price Ninja</h3>
-      <div className={styles.buttonGroup}>
+  return (
+    <main className="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-20 lg:pb-20">
+      <h1 className="text-center text-3xl font-bold tracking-tighter md:text-6xl lg:leading-[1.5]">
+        Your Ultimate Bargain Hunter
+      </h1>
+      <span className="text-center text-lg text-muted-foreground sm:text-xl">
+        Find the Best Deals Online and Save Big with Price Ninja
+      </span>
+      <div className="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
         <Button>
           <Link href="/products">Get Started</Link>
         </Button>
-        <Button variant="outline">
-          <GitHubLogoIcon className={styles.icon} /> GitHub
+        <Button variant="outline" asChild>
+          <Link href="https://github.com/marcosbd23/price-ninja" target="_blank">
+            <GitHubLogoIcon className="mr-2 h-4 w-4" /> GitHub
+          </Link>
         </Button>
       </div>
-      <h2 className={styles.descTitle}>About Our Proyect</h2>
-      <p className={styles.desc}>
-        Welcome to our project dedicated to finding the best
-        deals and lowest prices across a wide range of
-        products. In a world inundated with choices, navigating
-        through various retailers and online platforms to
-        find the most cost-effective options can be overwhelming.
-        That's where our project comes in - to simplify the
-        process and help users make informed purchasing decisions.
-      </p>
-    </div>
-  </div>
-}
+    </main>
+  );
+};
 
-export default Home
+export default Home;
