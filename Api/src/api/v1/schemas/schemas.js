@@ -42,6 +42,13 @@ export const patchSchema = Joi.object({
   lowest_price: Joi.number().precision(2)
 });
 
+export const querySchema = Joi.object({
+  search: Joi.string().max(100),
+   // dont need validation the middleware for pagination already handle it
+  page: Joi.number(),
+  limit: Joi.number()
+});
+
 export const scrapeSchema = Joi.object({
   url: Joi.string().uri().custom(validateURL, 'custom validation').required(),
 });

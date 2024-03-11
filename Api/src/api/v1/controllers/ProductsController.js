@@ -1,6 +1,7 @@
 import apicache from "apicache-plus";
+import { Op } from "sequelize";
 import { Change, Product, Category } from "../models/index.js";
-import { productSchema, patchSchema, scrapeSchema } from "../schemas/schemas.js";
+import { productSchema, patchSchema, scrapeSchema, querySchema } from "../schemas/schemas.js";
 import scraperService from "../services/scraperService.js";
 import logger from "../../../config/logger.js";
 
@@ -88,9 +89,26 @@ export async function getAll(req, res) {
   req.apicacheGroup = "ProductList";
 
   try {
+    const validation = querySchema.validate(req.query);
+    if (validation.error) {
+      return res.status(400).json(validation.error.details);
+    }
+
+    let where = {};
+    const searchQuery = req.query.search
+
+    // if the query search its provided modify the where 
+    if (searchQuery) {
+      where = {
+        name: { [Op.like]: `%${searchQuery}%` }
+      };
+      logger.info(`Searching search query: ${searchQuery}`)
+    }
+
     const { count, rows: products } = await Product.findAndCountAll({
       limit: req.query.limit,
       offset: req.skip,
+      where,
       include: Category,
       attributes: {
         exclude: ["category_id"],
@@ -137,17 +155,34 @@ export async function getByCategory(req, res) {
   const { id } = req.params;
 
   try {
+    const validation = querySchema.validate(req.query);
+    if (validation.error) {
+      return res.status(400).json(validation.error.details);
+    }
+
     // Check if the category exists
     let category = await Category.findByPk(id);
     if (!category) {
       return res.status(404).json({ message: "Category doesnt exist" });
     }
 
+    let where = { category_id: id };
+    const searchQuery = req.query.search
+
+    // if the query search its provided modify the where 
+    if (searchQuery) {
+      where = {
+        category_id: id,
+        name: { [Op.like]: `%${searchQuery}%` }
+      };
+      logger.info(`Searching search query: ${searchQuery}`)
+    }
+
     // Get products of that category
     const { count, rows: products } = await Product.findAndCountAll({
       limit: req.query.limit,
       offset: req.skip,
-      where: { category_id: id },
+      where,
       include: Category,
       attributes: {
         exclude: ["category_id"],
