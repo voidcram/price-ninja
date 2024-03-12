@@ -1,4 +1,4 @@
-import CategoriesCard from "@/components/categoriesCard/categoriesCard"
+import CategoriesCard from "@/components/categoriesCard/CategoriesCard"
 import styles from "./categories.module.css"
 import Link from "next/link"
 
