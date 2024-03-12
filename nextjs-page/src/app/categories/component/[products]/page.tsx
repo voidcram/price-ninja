@@ -1,4 +1,4 @@
-import ComponentCard from "@/components/componentCard/componentCard";
+import ComponentCard from "@/components/componentCard/ComponentCard";
 import styles from "./products.module.css";
 import SearchBar from "@/components/searchBar/SearchBar";
 
