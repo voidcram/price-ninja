@@ -1,7 +1,10 @@
-import puppeteer from "puppeteer";
+import puppeteer from 'puppeteer-extra';
+import stealthPlugin from 'puppeteer-extra-plugin-stealth';
+
+puppeteer.use(stealthPlugin());
 
 const scrape = async (url) => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({headless: "new"});
   try {
     const page = await browser.newPage();
 
