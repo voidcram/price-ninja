@@ -1,6 +1,6 @@
 import ComponentCard from "@/components/componentCard/componentCard";
 import styles from "./products.module.css";
-import SearchBar from "@/components/searchBar/searchBar";
+import SearchBar from "@/components/searchBar/SearchBar";
 
 const ProductsPage = () => {
   return (
