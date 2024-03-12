@@ -1,13 +1,20 @@
 import { Cluster } from "puppeteer-cluster";
 import puppeteer from "puppeteer-extra";
 import stealthPlugin from "puppeteer-extra-plugin-stealth";
+import pino from "pino";
+
+const logger = pino({
+  transport: {
+    target: "pino-pretty",
+  },
+});
 
 puppeteer.use(stealthPlugin());
 
 const base_url = "https://www.pccomponentes.com/";
 const categories = [
-  "tarjetas-graficas",
-  //   "placas-base",
+  //   "tarjetas-graficas",
+  "placas-base",
   // "procesadores",
   // "discos-duros",
   // "discos-duros-ssd",
@@ -30,19 +37,43 @@ const getNumberOfPages = async (page) => {
 };
 
 const getProductsInfo = async (page) => {
-  await page.waitForSelector("a[data-product-id]");
-  return await page.evaluate(() => {
-    
+  await page.waitForSelector("a[data-product-name]");
+  const products = await page.evaluate(() => {
+    const productLinks = document.querySelectorAll(
+      "a[data-product-category][data-product-category]:not([data-product-category='CATEGORÍA'])"
+    );
+    const productAttributes = [];
+
+    productLinks.forEach((link) => {
+      const thumb = link.querySelector("img").src;
+      const img = thumb.replace("thumb", "img").replace(/\/w-\d+-\d+\//, "/");
+      const url = link.getAttribute("href");
+      const seller = link.getAttribute("data-product-seller");
+      const brand = link.getAttribute("data-product-brand");
+      const current_price = link.getAttribute("data-product-price");
+      const name = link.getAttribute("data-product-name");
+      const category = link.getAttribute("data-product-category");
+      const stock = true;
+
+      productAttributes.push({
+        name,
+        url,
+        thumb,
+        img,
+        seller,
+        category,
+        brand,
+        stock,
+        current_price,
+        original_price: current_price,
+        lowest_price: current_price,
+      });
+    });
+
+    return productAttributes;
   });
-//   const products = await page.$$eval("a[data-product-id]", (productLinks) => {
-//     return productLinks.map((link) => {
-//       const name = link.getAttribute("data-product-name");
-//       const url = link.getAttribute("href");
-//       const category = link.getAttribute("data-product-category");
-//       return { name, url, category };
-//     });
-//   });
-//   return products;
+
+  return products;
 };
 
 const categoryScraper = async () => {
@@ -69,18 +100,15 @@ const categoryScraper = async () => {
     await page.goto(url);
 
     const numberPages = await getNumberOfPages(page);
-    console.log(`URL: ${url} | Paginas: ${numberPages}`);
+    logger.info(`URL: ${url} | Paginas: ${numberPages}`);
 
     // go through all the pages start on page 2
-    for (let index = 2; index <= 3; index++) {
+    for (let index = 2; index <= numberPages; index++) {
+      const nextPage = `${url}?page=${index}`;
+      logger.info(`Extracting products info from ${url}?page=${index}`);
       const products = await getProductsInfo(page);
-      console.log(
-        `Products extracted url ${url} | Page: ${index} | ${JSON.stringify(
-          products,
-          null,
-          2
-        )}`
-      );
+      logger.info(`Products extracted url ${url} | Page: ${index} | Products: ${products.length}`);
+      await page.goto(nextPage);
     }
   });
 
