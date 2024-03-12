@@ -1,8 +1,8 @@
 import ComponentCard from "@/components/componentCard/componentCard";
-import styles from "./category.module.css";
+import styles from "./products.module.css";
 import SearchBar from "@/components/searchBar/searchBar";
 
-const CategoryPage = () => {
+const ProductsPage = () => {
   return (
     <div>
       <div className={styles.container}>
@@ -41,4 +41,4 @@ const CategoryPage = () => {
   )
 }
 
-export default CategoryPage
+export default ProductsPage

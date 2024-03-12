@@ -12,11 +12,10 @@ const AboutPage = () => {
           </p>
           <br />
           <p>
-            Our platform offers an extensive database of computer.
-            From processors and graphics cards to motherboards to
-            motherboards and storage drives, you can browse and
-            track the technical specifications, performance
-            and prices, all in one place.
+            Our platform offers an extensive database of components.
+            From processors and graphics cards to motherboards and
+            storage drives. You can easily search for the product
+            you need, whether computers, laptops, monitors, etc.
           </p>
           <br />
           <p>

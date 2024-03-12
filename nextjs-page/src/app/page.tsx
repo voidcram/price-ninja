@@ -13,7 +13,7 @@ const Home = () => {
       </span>
       <div className="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
         <Button>
-          <Link href="/products">Get Started</Link>
+          <Link href="/categories">Get Started</Link>
         </Button>
         <Button variant="outline" asChild>
           <Link href="https://github.com/marcosbd23/price-ninja" target="_blank">
