@@ -6,9 +6,9 @@ import { Category } from "./Category.js";
 export const Product = sequelize.define("products",
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       primaryKey: true,
-      autoIncrement: true,
+      defaultValue: DataTypes.UUIDV4
     },
     name: {
       type: DataTypes.STRING(100),
@@ -36,9 +36,9 @@ export const Product = sequelize.define("products",
       defaultValue: "0",
     },
     category_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       allowNull: false,
-      defaultValue: 0,
+      defaultValue: DataTypes.UUIDV4
     },
     brand: {
       type: DataTypes.STRING(30),

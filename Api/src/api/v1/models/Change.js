@@ -4,14 +4,14 @@ import { sequelize } from "../../../config/database.js";
 export const Change = sequelize.define("changes",
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       primaryKey: true,
-      autoIncrement: true,
+      defaultValue: DataTypes.UUIDV4,
     },
     product_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       allowNull: false,
-      defaultValue: 0,
+      defaultValue: DataTypes.UUIDV4,
     },
     type: {
       type: DataTypes.STRING(20),
