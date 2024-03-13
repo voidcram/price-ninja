@@ -6,7 +6,13 @@ export const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_U
   host: process.env.DB_HOST,
   dialect: "mysql",
   port: process.env.DB_PORT,
-  logging: process.env.NODE_ENV == "development" ? console.log : false
+  logging: process.env.NODE_ENV == "development" ? console.log : false,
+  pool: {
+    max: 100,
+    min: 0,
+    idle: 200000,
+    acquire: 1000000,
+  }
 });
 
 // Create tables if they dont exist
