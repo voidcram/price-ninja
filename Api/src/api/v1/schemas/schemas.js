@@ -15,7 +15,7 @@ function validateURL(value, helpers) {
 }
 
 export const productSchema = Joi.object({
-  name: Joi.string().max(50).required(),
+  name: Joi.string().max(170).required(),
   url: Joi.string().uri().custom(validateURL, 'custom validation').required(),
   thumb: Joi.string().uri().custom(validateURL, 'custom validation').required(),
   img: Joi.string().uri().custom(validateURL, 'custom validation').required(),

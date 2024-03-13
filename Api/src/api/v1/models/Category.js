@@ -12,6 +12,7 @@ export const Category = sequelize.define("categories",
       type: DataTypes.STRING(50),
       allowNull: false,
       defaultValue: "0",
+      unique: true
     },
   },
   {

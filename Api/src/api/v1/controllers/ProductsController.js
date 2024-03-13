@@ -14,18 +14,15 @@ export async function createProduct(req, res) {
       return res.status(400).json(validation.error.details);
     }
 
-    // Check if the category exists
-    let category = await Category.findOne({
-      where: { name: productData.category },
-    });
-    if (!category) {
-      return res.status(404).json({ message: "Category doesnt exist" });
-    }
-
     // Check if product with that url already exists
     let exists = await Product.findOne({ where: { url: productData.url } });
     if (exists) {
       return res.status(409).json({ message: "Product already exists" });
+    }
+
+    const [category, created] = await Category.findOrCreate({ where: { name: productData.category }});
+    if (created) {
+      logger.info(`Created new category ${productData.category}`)
     }
 
     // Add the category ID to the product data, and change the key to category_id
@@ -59,14 +56,13 @@ export async function scrapeProduct(req, res) {
       return res.status(409).json({ message: "Product already exists" });
     }
 
+    // Scrape product info
     const scrapedData = await scraperService.scrape(url);
 
     // Check if the category exists
-    let category = await Category.findOne({
-      where: { name: scrapedData.category },
-    });
-    if (!category) {
-      category = await Category.create({ name: scrapedData.category });
+    const [category, created] = await Category.findOrCreate({ where: { name: scrapedData.category }});
+    if (created) {
+      logger.info(`Created new category ${scrapedData.category}`)
     }
 
     // Add the category ID to the product data, and change the key to category_id
@@ -97,7 +93,7 @@ export async function getAll(req, res) {
     let where = {};
     const searchQuery = req.query.search
 
-    // if the query search its provided modify the where 
+    // if the query search its provided modify the where
     if (searchQuery) {
       where = {
         name: { [Op.like]: `%${searchQuery}%` }
@@ -169,7 +165,7 @@ export async function getByCategory(req, res) {
     let where = { category_id: id };
     const searchQuery = req.query.search
 
-    // if the query search its provided modify the where 
+    // if the query search its provided modify the where
     if (searchQuery) {
       where = {
         category_id: id,
