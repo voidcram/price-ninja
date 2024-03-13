@@ -20,7 +20,7 @@ export const productSchema = Joi.object({
   thumb: Joi.string().uri().custom(validateURL, 'custom validation').required(),
   img: Joi.string().uri().custom(validateURL, 'custom validation').required(),
   category: Joi.string().max(30).required(),
-  seller: Joi.string().max(30).required(),
+  seller: Joi.string().max(100).required(),
   brand: Joi.string().max(30).required(),
   stock: Joi.boolean().required(),
   current_price: Joi.number().precision(2).required(),
@@ -29,12 +29,12 @@ export const productSchema = Joi.object({
 });
 
 export const patchSchema = Joi.object({
-  name: Joi.string().max(50),
+  name: Joi.string().max(170),
   url: Joi.string().uri().custom(validateURL, 'custom validation'),
   thumb: Joi.string().uri().custom(validateURL, 'custom validation'),
   img: Joi.string().uri().custom(validateURL, 'custom validation'),
   category: Joi.string().max(30),
-  seller: Joi.string().max(30),
+  seller: Joi.string().max(100),
   brand: Joi.string().max(30),
   stock: Joi.boolean(),
   current_price: Joi.number().precision(2),
