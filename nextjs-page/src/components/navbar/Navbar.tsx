@@ -1,6 +1,5 @@
 "use client";
 
-import styles from "./navbar.module.css"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu"
 import Links from "./links/Links";
 import Link from "next/link";
@@ -8,8 +7,8 @@ import Link from "next/link";
 
 const NavBar = () => {
     return (
-        <div className={styles.container}>
-            <Link href="/" className={styles.logo}>🐱‍👤 Price Ninja</Link>
+        <div className="h-24 flex items-center border-b border-solid border-b-black justify-between">
+            <Link href="/" className="text-3xl font-bold">🐱‍👤 Price Ninja</Link>
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
