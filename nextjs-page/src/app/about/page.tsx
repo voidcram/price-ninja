@@ -1,14 +1,12 @@
-import styles from "./about.module.css"
-
 const AboutPage = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.textContainer}>
-        <h1 className={styles.title}>Your Destination to Save Time & Money</h1>
-        <h2 className={styles.subtitle}>About Price Ninja</h2>
-        <p className={styles.desc}>
+    <div className="flex gap-16">
+      <div className="flex-1 flex flex-col gap-8 justify-center text-center">
+        <h1 className="text-6xl font-bold">Your Destination to Save Time & Money</h1>
+        <h2 className="text-gray-400 font-semibold">About Price Ninja</h2>
+        <div className="text-xl text-gray-500 font-semibold text-justify mt-10">
           <p>
-            <strong className={styles.descTitle}>Explore & Track:</strong>
+            <strong className="text-black font-bold text-3xl text-justify">Explore & Track:</strong>
           </p>
           <br />
           <p>
@@ -19,7 +17,7 @@ const AboutPage = () => {
           </p>
           <br />
           <p>
-            <strong className={styles.descTitle}>Price Alerts:</strong>
+            <strong className="text-black font-bold text-3xl text-justify">Price Alerts:</strong>
           </p>
           <br />
           <p>
@@ -31,9 +29,8 @@ const AboutPage = () => {
             At Price Ninja, we believe that every component counts. Discover, compare
             and take your configuration to the next level with us.
           </p>
-        </p>
+        </div>
       </div>
-      <div className={styles.imgContainer}></div>
     </div>
   )
 }

@@ -4,9 +4,9 @@ import Link from "next/link"
 
 const CategoriesPage = () => {
     return (
-        <div className={styles.container}>
-            <h2 className={styles.title}>Selection of Categories</h2>
-            <div className={styles.categoryContainer}>
+        <div>
+            <h2 className="text-5xl text-center font-bold mb-11">Selection of Categories</h2>
+            <div className="flex flex-wrap gap-6 mt-5 justify-center">
                 <div className={styles.category}>
                     <Link href="/categories/computers">
                         <CategoriesCard />

@@ -1,17 +1,16 @@
-import styles from "./componentCard.module.css"
 import Image from "next/image"
 
 const ComponentCard = () => {
     return (
-        <div className={styles.container}>
-            <div className={styles.top}>
-                <div className={styles.imgContainer}>
-                    <Image src="/lobo-ninja-bien.png" alt="" fill className={styles.img} />
+        <div className="flex flex-col gap-5">
+            <div className="flex">
+                <div className="w-52 h-52 relative border border-solid border-black rounded-lg">
+                    <Image src="/lobo-ninja-bien.png" alt="" fill className="object-cover" />
                 </div>
             </div>
-            <div className={styles.bottom}>
-                <h1 className={styles.title}>Title</h1>
-                <p className={styles.price}><span>Price1</span> - <span> Price 2</span></p>
+            <div>
+                <h1 className="w-52 text-xl mb-2.5">Title</h1>
+                <p className="w-52 mb-2.5 font-light text-slate-500"><span>Price1</span> - <span> Price 2</span></p>
             </div>
         </div>
     )

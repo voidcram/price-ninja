@@ -1,39 +1,39 @@
 import ComponentCard from "@/components/componentCard/ComponentCard";
-import styles from "./products.module.css";
-import SearchBar from "@/components/searchBar/SearchBar";
+import styles from "./products.module.css"
+import SearchBar from "@/components/searchBar/SearchBar"
 
 const ProductsPage = () => {
   return (
     <div>
-      <div className={styles.container}>
-        <h3 className={styles.title}>Our Collection Of Products</h3>
-        <div className={styles.search}>
+      <div className="justify-center text-center">
+        <h3 className="text-3xl font-bold mt-10 mb-10">Our Collection Of Products</h3>
+        <div className="flex-1 relative mb-10">
           <SearchBar />
         </div>
       </div>
-      <div className={styles.componentContainer}>
-        <div className={styles.component}>
+      <div className="flex flex-wrap gap-7 justify-center">
+        <div className={styles.product}>
           <ComponentCard />
         </div>
-        <div className={styles.component}>
+        <div className={styles.product}>
           <ComponentCard />
         </div>
-        <div className={styles.component}>
+        <div className={styles.product}>
           <ComponentCard />
         </div>
-        <div className={styles.component}>
+        <div className={styles.product}>
           <ComponentCard />
         </div>
-        <div className={styles.component}>
+        <div className={styles.product}>
           <ComponentCard />
         </div>
-        <div className={styles.component}>
+        <div className={styles.product}>
           <ComponentCard />
         </div>
-        <div className={styles.component}>
+        <div className={styles.product}>
           <ComponentCard />
         </div>
-        <div className={styles.component}>
+        <div className={styles.product}>
           <ComponentCard />
         </div>
       </div>

@@ -1,14 +1,13 @@
-import styles from './categoriesCard.module.css'
 import Image from "next/image"
 
 const CategoriesCard = () => {
     return (
-        <div className={styles.container}>
-            <div className={styles.card}>
-                <div className={styles.imgContainer}>
-                    <Image src="/lobo-ninja-bien.png" alt='' fill className={styles.img} />
+        <div className="flex flex-row gap-5 border border-solid border-black rounded-lg p-2 w-52 h-52 justify-center">
+            <div>
+                <div className="w-36 h-36 relative">
+                    <Image src="/lobo-ninja-bien.png" alt='' fill className="object-cover" />
                 </div>
-                <div className={styles.title}>
+                <div className="mt-2.5 text-center text-xl font-bold">
                     <h3>Title</h3>
                 </div>
             </div>

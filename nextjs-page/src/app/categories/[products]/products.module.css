@@ -1,43 +1,32 @@
-.container {
-    justify-content: center;
-    text-align: center;
-}
-
-.componentContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-}
-
-.search {
-    flex: 1;
-    position: relative;
-    margin-bottom: 40px;
-}
-
-.component {
+.product {
     width: 15%;
 }
 
-.title {
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 40px;
-    margin-bottom: 20px;
-
-}
 
 @media screen and (max-width: 1280px) {
-    .component {
-        width: 45%;
+    .product {
+        width: 20%;
     }
 
 }
 
-@media screen and (max-width: 768px) {
-    .component {
-        width: 100%;
+@media screen and (max-width: 1025px) {
+    .product {
+        width: 30%;
+    }
+
+}
+
+@media screen and (max-width: 770px) {
+    .product {
+        width: 37%;
+    }
+
+}
+
+@media screen and (max-width: 640px) {
+    .product {
+        width: 50%;
     }
 
 }
