@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { Cluster } from "puppeteer-cluster";
 import puppeteer from "puppeteer-extra";
 import stealthPlugin from "puppeteer-extra-plugin-stealth";
@@ -7,9 +8,15 @@ import logger from "../config/logger.js"
 puppeteer.use(stealthPlugin());
 
 const BASE_URL = "https://www.pccomponentes.com/";
-const API_URL = "http://localhost:4000/api/v1/products";
+const API_URL_CREATE_PRODUCT = "http://localhost:4000/api/v1/products";
+const API_KEY = process.env.API_KEY
+const CONFIG_API = {
+  headers: {
+    'x-api-key': API_KEY
+  }
+}
 
-const CATEGORIES_ROUTES = [
+const CATEGORIES_SLUG = [
   "tarjetas-graficas",
   "placas-base",
   "procesadores",
@@ -56,9 +63,9 @@ const scrapeProductsInfo = async ({ page, data: url }) => {
       let priceWithoutIVA = parseFloat(current_price)
       priceWithoutIVA = parseFloat((priceWithoutIVA / (1 + 21 / 100)).toFixed(2));
 
-      const removeAccents = (str) => {
-        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      }
+      // const removeAccents = (str) => {
+      //   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      // }
 
       products.push({
         name,
@@ -66,7 +73,7 @@ const scrapeProductsInfo = async ({ page, data: url }) => {
         thumb,
         img,
         seller,
-        category: removeAccents(category),
+        category,
         brand,
         stock,
         current_price: priceWithoutIVA,
@@ -80,12 +87,19 @@ const scrapeProductsInfo = async ({ page, data: url }) => {
 
   for (const product of products) {
     // Create product using the api
-    axios.post(API_URL, product)
+    axios.post(API_URL_CREATE_PRODUCT, product, CONFIG_API)
       .then(function (response) {
-        logger.info(`Created succesfully ${product.name}`)
+        logger.info(`Created ${product.name}`)
       })
       .catch(function (error) {
-        logger.error(error.response.data, `Error creating product ${product.name} | Status: ${error.response.status}`)
+        if (error.response) {
+          // If the error its 409 it means the product its already on the database
+          if (error.response.status !== 409) {
+            logger.error(error, `Creating product ${product.name}`)
+          }else{
+            logger.error(`${product.name} already exists`)
+          }
+        }
       });
   }
 };
@@ -96,7 +110,8 @@ const categoryScraper = async () => {
     concurrency: Cluster.CONCURRENCY_CONTEXT,
     maxConcurrency: 2,
     // monitor: true,
-    sameDomainDelay: 1500,
+    sameDomainDelay: 2000,
+    retryLimit: 2,
 
     puppeteer,
     puppeteerOptions: {
@@ -115,8 +130,10 @@ const categoryScraper = async () => {
 
     const numberPages = await getNumberOfPages(page);
 
-    // go through all the pages
-    for (let index = 1; index <= numberPages; index++) {
+    await scrapeProductsInfo({page, data: url})
+    
+    // go through all the pages start page 2
+    for (let index = 2; index <= numberPages; index++) {
       const nextPage = `${url}?page=${index}`;
       logger.info(`Adding to queue ${nextPage}`)
       cluster.queue(nextPage, scrapeProductsInfo);
@@ -124,8 +141,8 @@ const categoryScraper = async () => {
   });
 
   //   Add to queue all the categories
-  for (const category of CATEGORIES_ROUTES) {
-    const url = BASE_URL + category;
+  for (const slug of CATEGORIES_SLUG) {
+    const url = BASE_URL + slug;
     cluster.queue(url);
   }
 
