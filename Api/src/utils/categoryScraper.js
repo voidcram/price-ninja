@@ -1,30 +1,27 @@
 import { Cluster } from "puppeteer-cluster";
 import puppeteer from "puppeteer-extra";
 import stealthPlugin from "puppeteer-extra-plugin-stealth";
-import pino from "pino";
-
-const logger = pino({
-  transport: {
-    target: "pino-pretty",
-  },
-});
+import axios from "axios";
+import logger from "../config/logger.js"
 
 puppeteer.use(stealthPlugin());
 
-const base_url = "https://www.pccomponentes.com/";
-const categories = [
-  //   "tarjetas-graficas",
+const BASE_URL = "https://www.pccomponentes.com/";
+const API_URL = "http://localhost:4000/api/v1/products";
+
+const CATEGORIES_ROUTES = [
+  "tarjetas-graficas",
   "placas-base",
-  // "procesadores",
-  // "discos-duros",
-  // "discos-duros-ssd",
-  // "memorias-ram",
-  // "refrigeracion-liquida",
-  // "tarjetas-sonido",
-  // "torres",
-  // "ventiladores-suplementarios",
-  // "fuentes-alimentacion",
-  // "ventiladores-cpu",
+  "procesadores",
+  "discos-duros",
+  "discos-duros-ssd",
+  "memorias-ram",
+  "refrigeracion-liquida",
+  "tarjetas-sonido",
+  "torres",
+  "ventiladores-suplementarios",
+  "fuentes-alimentacion",
+  "ventiladores-cpu",
 ];
 
 const getNumberOfPages = async (page) => {
@@ -36,13 +33,14 @@ const getNumberOfPages = async (page) => {
   });
 };
 
-const getProductsInfo = async (page) => {
+const scrapeProductsInfo = async ({ page, data: url }) => {
+  logger.info(`Scraping ${url}`)
+  await page.goto(url)
   await page.waitForSelector("a[data-product-name]");
+
   const products = await page.evaluate(() => {
-    const productLinks = document.querySelectorAll(
-      "a[data-product-category][data-product-category]:not([data-product-category='CATEGORÍA'])"
-    );
-    const productAttributes = [];
+    const productLinks = document.querySelectorAll("a[data-product-category][data-product-category]:not([data-product-category='CATEGORÍA'])");
+    const products = [];
 
     productLinks.forEach((link) => {
       const thumb = link.querySelector("img").src;
@@ -55,32 +53,48 @@ const getProductsInfo = async (page) => {
       const category = link.getAttribute("data-product-category");
       const stock = true;
 
-      productAttributes.push({
+      let priceWithoutIVA = parseFloat(current_price)
+      priceWithoutIVA = parseFloat((priceWithoutIVA / (1 + 21 / 100)).toFixed(2));
+
+      const removeAccents = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      }
+
+      products.push({
         name,
         url,
         thumb,
         img,
         seller,
-        category,
+        category: removeAccents(category),
         brand,
         stock,
-        current_price,
-        original_price: current_price,
-        lowest_price: current_price,
+        current_price: priceWithoutIVA,
+        original_price: priceWithoutIVA,
+        lowest_price: priceWithoutIVA,
       });
     });
 
-    return productAttributes;
+    return products;
   });
 
-  return products;
+  for (const product of products) {
+    // Create product using the api
+    axios.post(API_URL, product)
+      .then(function (response) {
+        logger.info(`Created succesfully ${product.name}`)
+      })
+      .catch(function (error) {
+        logger.error(error.response.data, `Error creating product ${product.name} | Status: ${error.response.status}`)
+      });
+  }
 };
 
 const categoryScraper = async () => {
   // Start cluster
   const cluster = await Cluster.launch({
     concurrency: Cluster.CONCURRENCY_CONTEXT,
-    maxConcurrency: 1,
+    maxConcurrency: 2,
     // monitor: true,
     sameDomainDelay: 1500,
 
@@ -100,21 +114,18 @@ const categoryScraper = async () => {
     await page.goto(url);
 
     const numberPages = await getNumberOfPages(page);
-    logger.info(`URL: ${url} | Paginas: ${numberPages}`);
 
-    // go through all the pages start on page 2
-    for (let index = 2; index <= numberPages; index++) {
+    // go through all the pages
+    for (let index = 1; index <= numberPages; index++) {
       const nextPage = `${url}?page=${index}`;
-      logger.info(`Extracting products info from ${url}?page=${index}`);
-      const products = await getProductsInfo(page);
-      logger.info(`Products extracted url ${url} | Page: ${index} | Products: ${products.length}`);
-      await page.goto(nextPage);
+      logger.info(`Adding to queue ${nextPage}`)
+      cluster.queue(nextPage, scrapeProductsInfo);
     }
   });
 
   //   Add to queue all the categories
-  for (const category of categories) {
-    const url = base_url + category;
+  for (const category of CATEGORIES_ROUTES) {
+    const url = BASE_URL + category;
     cluster.queue(url);
   }
 
