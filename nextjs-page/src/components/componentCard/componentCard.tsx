@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 interface ComponentCardProps {
     title: string;
@@ -10,7 +10,14 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ title, price1, price2 }) 
     return (
         <div className="flex flex-col items-center gap-5">
             <div className="w-52 h-52 relative border border-solid border-black rounded-lg overflow-hidden">
-                <Image src="/lobo-ninja-bien.png" alt={title} layout="fill" objectFit="cover" />
+                <Image
+                    src="/lobo-ninja-bien.png"
+                    alt={title}
+                    fill
+                    sizes="100vw"
+                    style={{
+                        objectFit: "cover"
+                    }} />
             </div>
             <div className="text-center">
                 <h1 className="text-xl mb-2.5">{title}</h1>

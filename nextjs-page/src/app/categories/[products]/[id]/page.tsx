@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import Image from "next/legacy/image"
+import Image from "next/image"
 
 const ProductPage = () => {
     return (
@@ -7,7 +7,15 @@ const ProductPage = () => {
             <div className="max-w-6xl w-full bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="md:flex md:items-center md:justify-center">
                     <div className="md:w-1/2 border-r flex items-center justify-center">
-                        <Image src="/lobo-ninja-bien.png" alt="" width={1000} height={1000} />
+                        <Image
+                            src="/lobo-ninja-bien.png"
+                            alt=""
+                            width={1000}
+                            height={1000}
+                            style={{
+                                maxWidth: "100%",
+                                height: "auto"
+                            }} />
                     </div>
                     <div className="md:w-1/2 p-8">
                         <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Item</div>
@@ -24,7 +32,7 @@ const ProductPage = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ProductPage
