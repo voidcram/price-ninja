@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "categoryScraper": "node src/utils/categoryScraper.js",
+    "scraper": "node src/utils/categoryScraper.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
