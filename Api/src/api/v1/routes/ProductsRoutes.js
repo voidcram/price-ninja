@@ -16,7 +16,7 @@ router.get('/', paginate.middleware(10, 50), apicache('1 hour'), productsControl
 router.get('/:id', apicache('1 hour'), productsController.getById);
 
 // Get products by category
-router.get('/categories/:id', paginate.middleware(10, 50), apicache('1 hour'), productsController.getByCategory);
+router.get('/categories/:slug', paginate.middleware(10, 50), apicache('1 hour'), productsController.getByCategory);
 
 // Get product changes (i do it separated cause overtime it gonna scale to many changes)
 router.get('/changes/:id', paginate.middleware(10, 50), apicache('1 hour'), productsController.getChanges);

@@ -170,7 +170,7 @@ export async function getById(req, res) {
 
 export async function getByCategory(req, res) {
   req.apicacheGroup = "ProductList";
-  const { id } = req.params;
+  const { slug } = req.params;
 
   try {
     const validation = querySchema.validate(req.query);
@@ -179,18 +179,18 @@ export async function getByCategory(req, res) {
     }
 
     // Check if the category exists
-    let category = await Category.findByPk(id);
+    const category = await Category.findOne({ where: { slug } });
     if (!category) {
       return res.status(404).json({ message: "Category doesnt exist" });
     }
 
-    let where = { category_id: id };
+    let where = { category_id: category.id };
     const searchQuery = req.query.search
 
     // if the query search its provided modify the where
     if (searchQuery) {
       where = {
-        category_id: id,
+        category_id: category.id,
         name: { [Op.like]: `%${searchQuery}%` }
       };
       logger.info(`Searching search query: ${searchQuery}`)
@@ -218,7 +218,7 @@ export async function getByCategory(req, res) {
       data: products,
     });
   } catch (error) {
-    logger.error(error, `Error fetching products by category id ${id}`);
+    logger.error(error, `Error fetching products by category slug ${slug}`);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
