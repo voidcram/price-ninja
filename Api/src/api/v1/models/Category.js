@@ -14,6 +14,16 @@ export const Category = sequelize.define("categories",
       defaultValue: "0",
       unique: true
     },
+    thumb: {
+      type: DataTypes.STRING(200),
+      allowNull: false,
+      defaultValue: "0",
+    },
+    slug: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+      defaultValue: "0",
+    },
   },
   {
     timestamps: false,

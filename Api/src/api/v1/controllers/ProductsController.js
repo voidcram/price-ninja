@@ -1,9 +1,18 @@
 import apicache from "apicache-plus";
+import scraperService from "../services/scraperService.js";
+import logger from "../../../config/logger.js";
 import { Op } from "sequelize";
 import { Change, Product, Category } from "../models/index.js";
 import { productSchema, patchSchema, scrapeSchema, querySchema } from "../schemas/schemas.js";
-import scraperService from "../services/scraperService.js";
-import logger from "../../../config/logger.js";
+
+// Function for generate a slug for the categories based on product category name
+function generateSlug(str) {
+  return str
+    .toLowerCase() // Convert the string to lowercase
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .normalize('NFD') // Normalize the string to remove accents
+    .replace(/[\u0300-\u036f]/g, ''); // Remove accents
+}
 
 export async function createProduct(req, res) {
   const productData = req.body;
@@ -20,7 +29,14 @@ export async function createProduct(req, res) {
       return res.status(409).json({ message: "Product already exists" });
     }
 
-    const [category, created] = await Category.findOrCreate({ where: { name: productData.category }});
+    // Check if the category exists, if doesnt exist create the category with the thumb of that product
+    const [category, created] = await Category.findOrCreate({
+      where: { name: productData.category },
+      defaults: {
+        thumb: productData.thumb,
+        slug: generateSlug(productData.category)
+      }
+    });
     if (created) {
       logger.info(`Created new category ${productData.category}`)
     }
@@ -60,7 +76,13 @@ export async function scrapeProduct(req, res) {
     const scrapedData = await scraperService.scrape(url);
 
     // Check if the category exists
-    const [category, created] = await Category.findOrCreate({ where: { name: scrapedData.category }});
+    const [category, created] = await Category.findOrCreate({
+      where: { name: scrapedData.category },
+      defaults: {
+        thumb: scrapedData.thumb,
+        slug: generateSlug(scrapedData.category)
+      }
+    });
     if (created) {
       logger.info(`Created new category ${scrapedData.category}`)
     }
