@@ -2,6 +2,7 @@ import ProductList from "@/components/ProductList";
 import Search from "@/components/Search";
 import { Suspense } from "react";
 import { getProductsByCategory } from "@/lib/actions";
+import PaginationSection from "@/components/PaginationSection";
 
 export default async function ProductsPage({
   params,
@@ -32,6 +33,7 @@ export default async function ProductsPage({
       <Suspense>
         <ProductList products={products} />
       </Suspense>
+      <PaginationSection totalPages={response.pages}/>
     </div>
   );
 };
