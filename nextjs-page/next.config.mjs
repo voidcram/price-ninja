@@ -1,7 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["thumb.pccomponentes.com"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'thumb.pccomponentes.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.pccomponentes.com',
+        pathname: '**',
+      },
+    ],
   },
 };
 

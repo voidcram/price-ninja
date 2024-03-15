@@ -2,16 +2,17 @@ import Image from "next/image";
 
 interface ComponentCardProps {
     title: string;
+    img: string;
     price1: string;
     price2: string;
 }
 
-const ComponentCard: React.FC<ComponentCardProps> = ({ title, price1, price2 }) => {
+const ComponentCard: React.FC<ComponentCardProps> = ({ title, img, price1, price2 }) => {
     return (
         <div className="flex flex-col items-center gap-5">
             <div className="w-52 h-52 relative border border-solid border-black rounded-lg overflow-hidden">
                 <Image
-                    src="/lobo-ninja-bien.png"
+                    src={img}
                     alt={title}
                     fill
                     sizes="100vw"
