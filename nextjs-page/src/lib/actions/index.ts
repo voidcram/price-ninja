@@ -13,12 +13,12 @@ async function fetchAPI(endpoint: string) {
   }
 }
 
-export async function getAllProducts(search: string = "", page: number = 1) {
-  return await fetchAPI(`/products?page=${page}&search=${search}`);
+export async function getAllProducts(search: string = "", page: number = 1, limit: number = 20) {
+  return await fetchAPI(`/products?page=${page}&limit=${limit}&search=${search}`);
 }
 
-export async function getProductsByCategory(category: string, search: string = "", page: number = 1) {
-  return await fetchAPI(`/products/categories/${category}?page=${page}&search=${search}`);
+export async function getProductsByCategory(category: string, search: string = "", page: number = 1, limit: number = 20) {
+  return await fetchAPI(`/products/categories/${category}?page=${page}&limit=${limit}&search=${search}`);
 }
 
 export async function getCategories() {
