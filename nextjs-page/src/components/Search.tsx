@@ -9,8 +9,6 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const search = searchParams.get("search");
-
   const handleSearch = useDebouncedCallback((term) => {
     const params = new URLSearchParams(searchParams);
     if (term) {
@@ -18,6 +16,9 @@ export default function Search({ placeholder }: { placeholder: string }) {
     } else {
       params.delete('search');
     }
+
+    params.set('page', '1')
+
     replace(`${pathname}?${params.toString()}`);
   }, 300);
 
