@@ -10,6 +10,7 @@ function generateSlug(str) {
   return str
     .toLowerCase() // Convert the string to lowercase
     .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/\//g, '-') // Replace slashes with hyphens
     .normalize('NFD') // Normalize the string to remove accents
     .replace(/[\u0300-\u036f]/g, ''); // Remove accents
 }
