@@ -43,7 +43,7 @@ export const patchSchema = Joi.object({
 });
 
 export const querySchema = Joi.object({
-  search: Joi.string().max(100),
+  search: Joi.string().max(100).allow(null, ''),
    // dont need validation the middleware for pagination already handle it
   page: Joi.number(),
   limit: Joi.number()
