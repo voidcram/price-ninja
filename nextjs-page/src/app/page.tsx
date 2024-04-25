@@ -12,7 +12,7 @@ const Home = () => {
         Find the Best Deals Online and Save Big with Price Ninja
       </span>
       <div className="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
-        <Button>
+        <Button asChild>
           <Link href="/categories">Get Started</Link>
         </Button>
         <Button variant="outline" asChild>

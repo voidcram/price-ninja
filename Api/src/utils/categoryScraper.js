@@ -32,11 +32,9 @@ const CATEGORIES_SLUG = [
 ];
 
 const getNumberOfPages = async (page) => {
-  await page.waitForSelector("#paginator");
+  await page.waitForSelector("#category-list-paginator");
   return await page.evaluate(() => {
-    return document
-      .querySelector("#paginator span")
-      .textContent.replace("Página 1 de ", "");
+    return document.querySelector("#category-list-paginator span").textContent.replace("Página 1 de ", "");
   });
 };
 
@@ -62,10 +60,6 @@ const scrapeProductsInfo = async ({ page, data: url }) => {
 
       let priceWithoutIVA = parseFloat(current_price)
       priceWithoutIVA = parseFloat((priceWithoutIVA / (1 + 21 / 100)).toFixed(2));
-
-      // const removeAccents = (str) => {
-      //   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      // }
 
       products.push({
         name,
@@ -131,7 +125,7 @@ const categoryScraper = async () => {
     const numberPages = await getNumberOfPages(page);
 
     await scrapeProductsInfo({page, data: url})
-    
+
     // go through all the pages start page 2
     for (let index = 2; index <= numberPages; index++) {
       const nextPage = `${url}?page=${index}`;
