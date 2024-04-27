@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d4e70e9c-2bb7-40be-8fdb-06835d28b457",
+		"_postman_id": "21d72977-d54b-4833-9e6a-256b9372c333",
 		"name": "Price Ninja API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16447291"
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/asus-tuf-gaming-f15-fx507zc4-hn002-intel-core-i7-12700h-16gb-512gb-ssd-rtx-3050-156\"\r\n}",
+					"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/pccom-imperial-amd-ryzen-7-5800x-32gb-1tb-ssd-rtx-4070-negro-windows-11-home\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -32,9 +32,256 @@
 						"scrape"
 					]
 				},
-				"description": "Allows users to scrape product data from a given URL (It only accepts urls from Pccomponentes at the moment)"
+				"description": "Allows users to scrape product data from a given URL (It only accepts urls from Pccomponentes at the moment) the endpoint returns the scraped product data along with a 201 status code. If any errors occur during the creation process, appropriate error messages are returned along with the corresponding status codes."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "201 Succesfully scraped product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/pccom-imperial-amd-ryzen-7-5800x-32gb-1tb-ssd-rtx-4070-negro-windows-11-home\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/scrape",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"scrape"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=99, reset=600"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "823"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"337-1BSShlGXQMtcVvfJMxinxJMolkY\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 10:52:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"4caed7fb-193a-4cc5-bf32-9feaf3e9abcc\",\n    \"name\": \"PcCom Imperial AMD Ryzen 7 5800X / 32GB / 1TB SSD / RTX 4070 - Negro + Windows 11 Home\",\n    \"url\": \"https://www.pccomponentes.com/pccom-imperial-amd-ryzen-7-5800x-32gb-1tb-ssd-rtx-4070-negro-windows-11-home\",\n    \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1079/10790463/1309-pccom-imperial-amd-ryzen-7-5800x-32gb-1tb-ssd-rtx-4070-negro-windows-11-home.jpg\",\n    \"img\": \"https://img.pccomponentes.com/articles/1079/10790463/1309-pccom-imperial-amd-ryzen-7-5800x-32gb-1tb-ssd-rtx-4070-negro-windows-11-home.jpg\",\n    \"seller\": \"PcComponentes\",\n    \"brand\": \"PcCom\",\n    \"stock\": true,\n    \"current_price\": 1313.22,\n    \"original_price\": 1313.22,\n    \"lowest_price\": 1313.22,\n    \"category_id\": \"ade73099-703d-42ca-8d93-79d3b5c0f29c\",\n    \"updated_at\": \"2024-04-27T10:52:36.372Z\",\n    \"created_at\": \"2024-04-27T10:52:36.372Z\"\n}"
+				},
+				{
+					"name": "409 product already exists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/pccom-imperial-amd-ryzen-7-5800x-32gb-1tb-ssd-rtx-4070-negro-windows-11-home\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/scrape",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"scrape"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=97, reset=383"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"24-s8WgZks72QHSYy1PjBBcBb9NZBc\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 10:56:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product already exists\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Create Product",
@@ -61,16 +308,258 @@
 						"products"
 					]
 				},
-				"description": "Create a new product in the database. With the necessary product information in the request body, including the product name, url, seller, category, brand, stock availability, current price, original price, and lowest price. Before creating the product, the endpoint validates the input data and ensures that the required fields are provided. If the category specified does not exist, the endpoint returns a 404 error indicating that the category does not exist. If a product with the same URL already exists, the endpoint returns a 409 error indicating that the product already exists. Upon successful creation, the endpoint returns the newly created product data along with a 201 status code. If any errors occur during the creation process, appropriate error messages are returned along with the corresponding status codes."
+				"description": "Create a new product in the database. Before creating the product, the endpoint validates the input data and ensures that the required fields are provided. If the category specified does not exist, the endpoint returns a 404 error indicating that the category does not exist. If a product with the same URL already exists, the endpoint returns a 409 error indicating that the product already exists. Upon successful creation, the endpoint returns the newly created product data along with a 201 status code. If any errors occur during the creation process, appropriate error messages are returned along with the corresponding status codes."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "409 product already exists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Example Product\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-s\",\r\n  \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"img\": \"https://img.pccomponentes.com/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"category\": \"portatiles\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=96, reset=357"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"24-s8WgZks72QHSYy1PjBBcBb9NZBc\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 10:56:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product already exists\"\n}"
+				},
+				{
+					"name": "201 Successfully created product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Example Product\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-ss\",\r\n  \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"img\": \"https://img.pccomponentes.com/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"category\": \"portatiles\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=95, reset=319"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "720"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d0-jy9EzIhPG7dpNQxTGz3PQ12CkIs\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 10:57:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"c9f3e02a-c678-439b-b170-17d00fedc4cc\",\n    \"name\": \"Example Product\",\n    \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-ss\",\n    \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\n    \"img\": \"https://img.pccomponentes.com/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\n    \"seller\": \"Example Seller\",\n    \"brand\": \"Example Brand\",\n    \"stock\": true,\n    \"current_price\": 99.99,\n    \"original_price\": 129.99,\n    \"lowest_price\": 79.99,\n    \"category_id\": \"5a9ef310-2d5b-4766-8a02-c81f4a5c57bf\",\n    \"updated_at\": \"2024-04-27T10:57:15.554Z\",\n    \"created_at\": \"2024-04-27T10:57:15.554Z\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Get Products",
 			"request": {
-				"auth": {
-					"type": "inherit"
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -84,9 +573,258 @@
 						"products"
 					]
 				},
-				"description": "This endpoint allows users to retrieve a list of all products stored in the database. It accepts a GET request without any parameters. Upon successful retrieval, the endpoint returns a list of products along with their details, including the product ID, name, URL, seller, category, brand, stock availability, current price, original price, and lowest price. The response is paginated to improve performance and prevent overwhelming the client with a large amount of data. Additionally, the endpoint provides sorting and filtering options to allow users to customize the returned results based on their preferences. If there are no products available in the database, the endpoint returns an empty list with a 200 status code. If any errors occur during the retrieval process, appropriate error messages are returned along with the corresponding status codes."
+				"description": "This endpoint allows users to retrieve a list of all products stored in the database. Upon successful retrieval, the endpoint returns a list of products along with their details, the response is paginated to improve performance and prevent overwhelming the client with a large amount of data.\n\nAdditionally, the endpoint provides sorting and filtering options to allow users to customize the returned results based on their preferences. If there are no products available in the database, the endpoint returns an empty list with a 200 status code. If any errors occur during the retrieval process, appropriate error messages are returned along with the corresponding status codes."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "200 Get Products",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=98, reset=396"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2232-yKf4DpjAE/Tf8ACxazjc5cBa3I4\""
+						},
+						{
+							"key": "cache-control",
+							"value": "max-age=3, must-revalidate"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 17:23:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"totalProducts\": 187,\n    \"pages\": 19,\n    \"currentPage\": 1,\n    \"data\": [\n        {\n            \"id\": \"02f914b4-b9cb-4fbc-a876-72bc8ada4ad3\",\n            \"name\": \"Corsair Vengeance LPX DDR4 3600MHz 64GB 2x32GB CL18\",\n            \"url\": \"https://www.pccomponentes.com/corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"115.69\",\n            \"original_price\": \"115.69\",\n            \"lowest_price\": \"115.69\",\n            \"created_at\": \"2024-04-25T19:46:32.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:32.000Z\",\n            \"category\": {\n                \"id\": \"f48466a5-74ea-470b-ba46-a45e88a1b151\",\n                \"name\": \"Memorias RAM\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n                \"slug\": \"memorias-ram\"\n            }\n        },\n        {\n            \"id\": \"03817895-1230-4841-8c25-fa64bae75428\",\n            \"name\": \"WD BLACK SN770 1TB SSD PCIe Gen4 NVMe\",\n            \"url\": \"https://www.pccomponentes.com/dlss3\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1006/10060346/1242-wd-black-sn770-1tb-nvme-ssd.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1006/10060346/1242-wd-black-sn770-1tb-nvme-ssd.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Western Digital\",\n            \"stock\": true,\n            \"current_price\": \"68.58\",\n            \"original_price\": \"68.58\",\n            \"lowest_price\": \"68.58\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-04-25T19:13:00.000Z\",\n            \"category\": {\n                \"id\": \"444bb1ca-fa71-49f1-8272-ee019b742447\",\n                \"name\": \"Discos Duros\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1057/10578300/1498-kingston-nv2-1tb-ssd-pcie-40-nvme-gen-4x4.jpg\",\n                \"slug\": \"discos-duros\"\n            }\n        },\n        {\n            \"id\": \"03dae63d-6fc2-4ec3-95b0-89e989221665\",\n            \"name\": \"MSI MAG B650 TOMAHAWK WIFI\",\n            \"url\": \"https://www.pccomponentes.com/msi-mag-b650-tomahawk-wifi\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1063/10631547/1838-msi-mag-b650-tomahawk-wifi.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1063/10631547/1838-msi-mag-b650-tomahawk-wifi.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"MSI\",\n            \"stock\": true,\n            \"current_price\": \"177.68\",\n            \"original_price\": \"177.68\",\n            \"lowest_price\": \"177.68\",\n            \"created_at\": \"2024-04-25T19:46:30.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:30.000Z\",\n            \"category\": {\n                \"id\": \"7876dcb9-f73f-40d1-bd03-5e4184ce114b\",\n                \"name\": \"Placas Base\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1080/10803246/1684-msi-pro-b650-s-wifi.jpg\",\n                \"slug\": \"placas-base\"\n            }\n        },\n        {\n            \"id\": \"047abd75-da73-463e-a7ea-d70f3a94c964\",\n            \"name\": \"MSI GeForce RTX 4090 GAMING X SLIM 24GB GDDR6X DLSS3\",\n            \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4090-gaming-x-slim-24gb-gddr6x-dlss3\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1079/10792156/1155-msi-geforce-rtx-4090-gaming-x-slim-24gb-gddr6x-dlss3.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1079/10792156/1155-msi-geforce-rtx-4090-gaming-x-slim-24gb-gddr6x-dlss3.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"MSI\",\n            \"stock\": true,\n            \"current_price\": \"1652.81\",\n            \"original_price\": \"1652.81\",\n            \"lowest_price\": \"1652.81\",\n            \"created_at\": \"2024-03-15T03:21:49.000Z\",\n            \"updated_at\": \"2024-03-15T03:21:49.000Z\",\n            \"category\": {\n                \"id\": \"49e171bb-069b-4a0d-b579-288f22c0e07a\",\n                \"name\": \"Tarjetas Gráficas\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1075/10755558/1958-msi-geforce-rtx-4060-ventus-2x-white-oc-8gb-gddr6-dlss3.jpg\",\n                \"slug\": \"tarjetas-graficas\"\n            }\n        },\n        {\n            \"id\": \"0503bf3c-a5a8-4fdc-a68e-515fee4560af\",\n            \"name\": \"MSI GeForce RTX 3050 VENTUS 2X XS OC 8GB GDDR6\",\n            \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-3050-ventus-2x-xs-oc-8gb-gddr6\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1074/10745417/1257-msi-geforce-rtx-3050-ventus-2x-xs-oc-8gb-gddr6.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1074/10745417/1257-msi-geforce-rtx-3050-ventus-2x-xs-oc-8gb-gddr6.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"MSI\",\n            \"stock\": true,\n            \"current_price\": \"180.99\",\n            \"original_price\": \"180.99\",\n            \"lowest_price\": \"180.99\",\n            \"created_at\": \"2024-04-25T19:46:28.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:28.000Z\",\n            \"category\": {\n                \"id\": \"49e171bb-069b-4a0d-b579-288f22c0e07a\",\n                \"name\": \"Tarjetas Gráficas\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1075/10755558/1958-msi-geforce-rtx-4060-ventus-2x-white-oc-8gb-gddr6-dlss3.jpg\",\n                \"slug\": \"tarjetas-graficas\"\n            }\n        },\n        {\n            \"id\": \"0603af26-6c1c-4ab7-81be-f01604538cbd\",\n            \"name\": \"Zotac Gaming GeForce RTX 3050 ECO 8GB GDDR6\",\n            \"url\": \"https://www.pccomponentes.com/zotac-gaming-geforce-rtx-3050-eco-8gb-gddr6\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1075/10757145/1348-zotac-gaming-geforce-rtx-3050-eco-8gb-gddr6.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1075/10757145/1348-zotac-gaming-geforce-rtx-3050-eco-8gb-gddr6.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Zotac\",\n            \"stock\": true,\n            \"current_price\": \"181.81\",\n            \"original_price\": \"181.81\",\n            \"lowest_price\": \"181.81\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"49e171bb-069b-4a0d-b579-288f22c0e07a\",\n                \"name\": \"Tarjetas Gráficas\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1075/10755558/1958-msi-geforce-rtx-4060-ventus-2x-white-oc-8gb-gddr6-dlss3.jpg\",\n                \"slug\": \"tarjetas-graficas\"\n            }\n        },\n        {\n            \"id\": \"06dfb0e9-bf7e-4a41-b5e4-5109f035fcc5\",\n            \"name\": \"WD Red Pro 3.5\\\" 14TB NAS SATA 3\",\n            \"url\": \"https://www.pccomponentes.com/wd-red-pro-35-14tb-nas-sata-3\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1079/10797827/1264-wd-red-pro-35-14tb-nas-sata-3.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1079/10797827/1264-wd-red-pro-35-14tb-nas-sata-3.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Western Digital\",\n            \"stock\": true,\n            \"current_price\": \"389.25\",\n            \"original_price\": \"389.25\",\n            \"lowest_price\": \"389.25\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"444bb1ca-fa71-49f1-8272-ee019b742447\",\n                \"name\": \"Discos Duros\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1057/10578300/1498-kingston-nv2-1tb-ssd-pcie-40-nvme-gen-4x4.jpg\",\n                \"slug\": \"discos-duros\"\n            }\n        },\n        {\n            \"id\": \"070e3a72-62fb-4f30-929d-8a084fe74bcc\",\n            \"name\": \"ASUS Dual GeForce RTX 4060 Ti EVO OC Edition 8GB GDDR6 DLSS3\",\n            \"url\": \"https://www.pccomponentes.com/asus-dual-geforce-rtx-4060-ti-evo-oc-edition-8gb-gddr6-dlss3\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1081/10818659/1788-asus-dual-geforce-rtx-4060-ti-evo-oc-edition-8gb-gddr6-dlss3.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1081/10818659/1788-asus-dual-geforce-rtx-4060-ti-evo-oc-edition-8gb-gddr6-dlss3.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Asus\",\n            \"stock\": true,\n            \"current_price\": \"392.56\",\n            \"original_price\": \"392.56\",\n            \"lowest_price\": \"392.56\",\n            \"created_at\": \"2024-04-25T19:46:28.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:28.000Z\",\n            \"category\": {\n                \"id\": \"49e171bb-069b-4a0d-b579-288f22c0e07a\",\n                \"name\": \"Tarjetas Gráficas\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1075/10755558/1958-msi-geforce-rtx-4060-ventus-2x-white-oc-8gb-gddr6-dlss3.jpg\",\n                \"slug\": \"tarjetas-graficas\"\n            }\n        },\n        {\n            \"id\": \"09e6209c-0792-43b5-b15f-90ddab47cccb\",\n            \"name\": \"Samsung 870 EVO SSD 2.5\\\" 4TB SATA3 Negro\",\n            \"url\": \"https://www.pccomponentes.com/samsung-870-evo-ssd-25-4tb-sata3-negro\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/35/350362/1585-samsung-870-qvo-ssd-25-4tb-sata3-negro.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/35/350362/1585-samsung-870-qvo-ssd-25-4tb-sata3-negro.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Samsung\",\n            \"stock\": true,\n            \"current_price\": \"234.69\",\n            \"original_price\": \"234.69\",\n            \"lowest_price\": \"234.69\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"444bb1ca-fa71-49f1-8272-ee019b742447\",\n                \"name\": \"Discos Duros\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1057/10578300/1498-kingston-nv2-1tb-ssd-pcie-40-nvme-gen-4x4.jpg\",\n                \"slug\": \"discos-duros\"\n            }\n        },\n        {\n            \"id\": \"0a2d1ef7-252a-4140-8f5e-0f5845cc36d0\",\n            \"name\": \"Gigabyte GeForce RTX 4070 Windforce OC 12 GB GDDR6X DLSS3\",\n            \"url\": \"https://www.pccomponentes.com/gigabyte-geforce-rtx-4070-windforce-oc-12-gb-gddr6x-dlss3\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1070/10706592/1556-gigabyte-geforce-rtx-4070-windforce-oc-12gb-gddr6x-dlss3.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1070/10706592/1556-gigabyte-geforce-rtx-4070-windforce-oc-12gb-gddr6x-dlss3.jpg\",\n            \"seller\": \"OCASIONIA\",\n            \"brand\": \"Gigabyte\",\n            \"stock\": true,\n            \"current_price\": \"551.36\",\n            \"original_price\": \"551.36\",\n            \"lowest_price\": \"551.36\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"49e171bb-069b-4a0d-b579-288f22c0e07a\",\n                \"name\": \"Tarjetas Gráficas\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1075/10755558/1958-msi-geforce-rtx-4060-ventus-2x-white-oc-8gb-gddr6-dlss3.jpg\",\n                \"slug\": \"tarjetas-graficas\"\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "200 Get products with search query",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products?search=corsair",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "corsair"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=96, reset=367"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"25e2-FvOcgVbBE8vFueq8dfF9W6zxqBY\""
+						},
+						{
+							"key": "cache-control",
+							"value": "max-age=3, must-revalidate"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 17:23:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"totalProducts\": 21,\n    \"pages\": 3,\n    \"currentPage\": 1,\n    \"data\": [\n        {\n            \"id\": \"02f914b4-b9cb-4fbc-a876-72bc8ada4ad3\",\n            \"name\": \"Corsair Vengeance LPX DDR4 3600MHz 64GB 2x32GB CL18\",\n            \"url\": \"https://www.pccomponentes.com/corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"115.69\",\n            \"original_price\": \"115.69\",\n            \"lowest_price\": \"115.69\",\n            \"created_at\": \"2024-04-25T19:46:32.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:32.000Z\",\n            \"category\": {\n                \"id\": \"f48466a5-74ea-470b-ba46-a45e88a1b151\",\n                \"name\": \"Memorias RAM\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n                \"slug\": \"memorias-ram\"\n            }\n        },\n        {\n            \"id\": \"2aa9bb61-c118-4771-b9f3-97ac6fb4791a\",\n            \"name\": \"Corsair MP700 PRO 1TB SSD PCIe M.2 NVMe 2.0 Gen5 x4 con Refrigerador de Aire\",\n            \"url\": \"https://www.pccomponentes.com/corsair-mp700-pro-1tb-ssd-pcie-m2-nvme-20-gen5-x4-con-refrigerador-de-aire\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1079/10798922/114-corsair-mp700-pro-1tb-ssd-pcie-m2-nvme-20-gen5-x4-con-refrigerador-de-aire.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1079/10798922/114-corsair-mp700-pro-1tb-ssd-pcie-m2-nvme-20-gen5-x4-con-refrigerador-de-aire.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"188.42\",\n            \"original_price\": \"188.42\",\n            \"lowest_price\": \"188.42\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"444bb1ca-fa71-49f1-8272-ee019b742447\",\n                \"name\": \"Discos Duros\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1057/10578300/1498-kingston-nv2-1tb-ssd-pcie-40-nvme-gen-4x4.jpg\",\n                \"slug\": \"discos-duros\"\n            }\n        },\n        {\n            \"id\": \"320b3816-ba9b-4013-a9b0-4ac93ced81af\",\n            \"name\": \"Corsair Vengeance RGB DDR5 6000MHz PC5-48000 32GB 2x16GB CL30 Memoria Dual AMD EXPO e Intel XMP\",\n            \"url\": \"https://www.pccomponentes.com/corsair-vengeance-rgb-ddr5-6000mhz-pc5-48000-32gb-2x16gb-cl30-memoria-dual-amd-expo-e-intel-xmp\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1066/10662597/152-corsair-vengeance-rgb-ddr5-4800mhz-32gb-2x16gb-cl30.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1066/10662597/152-corsair-vengeance-rgb-ddr5-4800mhz-32gb-2x16gb-cl30.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"114.88\",\n            \"original_price\": \"114.88\",\n            \"lowest_price\": \"114.88\",\n            \"created_at\": \"2024-04-25T19:46:32.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:32.000Z\",\n            \"category\": {\n                \"id\": \"f48466a5-74ea-470b-ba46-a45e88a1b151\",\n                \"name\": \"Memorias RAM\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n                \"slug\": \"memorias-ram\"\n            }\n        },\n        {\n            \"id\": \"3434e564-1adb-4dd3-b78b-ae5cce7d4abc\",\n            \"name\": \"Corsair Vengeance RGB DDR5 6000MHz PC5-48000 32GB 2x16GB CL36 Negra\",\n            \"url\": \"https://www.pccomponentes.com/corsair-vengeance-rgb-ddr5-6000mhz-pc5-48000-32gb-2x16gb-cl36-negra\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1071/10711396/1323-corsair-vengeance-rgb-ddr5-6000mhz-pc5-48000-32gb-2x16gb-cl36-negro.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1071/10711396/1323-corsair-vengeance-rgb-ddr5-6000mhz-pc5-48000-32gb-2x16gb-cl36-negro.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"102.48\",\n            \"original_price\": \"102.48\",\n            \"lowest_price\": \"102.48\",\n            \"created_at\": \"2024-04-25T19:46:32.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:32.000Z\",\n            \"category\": {\n                \"id\": \"f48466a5-74ea-470b-ba46-a45e88a1b151\",\n                \"name\": \"Memorias RAM\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n                \"slug\": \"memorias-ram\"\n            }\n        },\n        {\n            \"id\": \"4b46a299-4ba2-41a6-b72b-48603a56b07d\",\n            \"name\": \"Corsair Vengeance LPX DDR4 3600MHz PC4-28800 32GB 2x16GB CL18\",\n            \"url\": \"https://www.pccomponentes.com/corsair-vengeance-lpx-ddr4-3600mhz-pc4-28800-32gb-2x16gb-cl18\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/30/309389/1844-corsair-vengeance-lpx-ddr4-3600mhz-pc4-28800-32gb-2x16gb-cl18.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/30/309389/1844-corsair-vengeance-lpx-ddr4-3600mhz-pc4-28800-32gb-2x16gb-cl18.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"60.32\",\n            \"original_price\": \"60.32\",\n            \"lowest_price\": \"60.32\",\n            \"created_at\": \"2024-04-25T19:46:32.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:32.000Z\",\n            \"category\": {\n                \"id\": \"f48466a5-74ea-470b-ba46-a45e88a1b151\",\n                \"name\": \"Memorias RAM\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n                \"slug\": \"memorias-ram\"\n            }\n        },\n        {\n            \"id\": \"5cb4956f-aedf-4346-9ed9-9c2fab56bd6c\",\n            \"name\": \"Corsair Vengeance DDR5 6000MHz 32 GB 2x16GB CL36 Memoria Dual AMD EXPO e Intel XMP\",\n            \"url\": \"https://www.pccomponentes.com/corsair-vengeance-ddr5-6000mhz-32-gb-2x16gb-cl36-memoria-dual-amd-expo-e-intel-xmp\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1078/10788198/1437-corsair-vengeance-ddr5-6000mhz-32-gb-2x16gb-cl36-optimizado-amd-opiniones.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1078/10788198/1437-corsair-vengeance-ddr5-6000mhz-32-gb-2x16gb-cl36-optimizado-amd-opiniones.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"94.21\",\n            \"original_price\": \"94.21\",\n            \"lowest_price\": \"94.21\",\n            \"created_at\": \"2024-04-25T19:46:32.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:32.000Z\",\n            \"category\": {\n                \"id\": \"f48466a5-74ea-470b-ba46-a45e88a1b151\",\n                \"name\": \"Memorias RAM\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n                \"slug\": \"memorias-ram\"\n            }\n        },\n        {\n            \"id\": \"5e759eef-3073-4892-8873-d099c645fa1a\",\n            \"name\": \"Corsair MP600 ELITE 2TB SSD PCIe Gen4 x4 NVMe M.2 para PS5 con Disipador Térmico Blanco\",\n            \"url\": \"https://www.pccomponentes.com/corsair-mp600-elite-2tb-ssd-pcie-gen4-x4-nvme-m2-para-ps5-con-disipador-termico-blanco\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1081/10813869/1646-corsair-mp600-elite-2tb-ssd-pcie-gen4-x4-nvme-m2-para-ps5-con-disipador-termico-blanco.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1081/10813869/1646-corsair-mp600-elite-2tb-ssd-pcie-gen4-x4-nvme-m2-para-ps5-con-disipador-termico-blanco.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"202.47\",\n            \"original_price\": \"202.47\",\n            \"lowest_price\": \"202.47\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"444bb1ca-fa71-49f1-8272-ee019b742447\",\n                \"name\": \"Discos Duros\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1057/10578300/1498-kingston-nv2-1tb-ssd-pcie-40-nvme-gen-4x4.jpg\",\n                \"slug\": \"discos-duros\"\n            }\n        },\n        {\n            \"id\": \"600efff3-c156-459c-a82c-fceb0271fe65\",\n            \"name\": \"Corsair Vengeance LPX DDR4 3200 PC4-25600 16GB 2X8GB CL16 Negro\",\n            \"url\": \"https://www.pccomponentes.com/corsair-vengeance-lpx-ddr4-3200-pc4-25600-16gb-2x8gb-cl16-negro\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/26/262822/corsair-vengeance-lpx-ddr4-3200-pc4-25600-16gb-2x8gb-cl16-negro.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/26/262822/corsair-vengeance-lpx-ddr4-3200-pc4-25600-16gb-2x8gb-cl16-negro.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"35.53\",\n            \"original_price\": \"35.53\",\n            \"lowest_price\": \"35.53\",\n            \"created_at\": \"2024-04-25T19:46:32.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:32.000Z\",\n            \"category\": {\n                \"id\": \"f48466a5-74ea-470b-ba46-a45e88a1b151\",\n                \"name\": \"Memorias RAM\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n                \"slug\": \"memorias-ram\"\n            }\n        },\n        {\n            \"id\": \"6736d7b8-b8bc-439c-afd2-74cc91b08852\",\n            \"name\": \"Corsair Vengeance DDR5 6400MHz 64GB 2x32GB CL32\",\n            \"url\": \"https://www.pccomponentes.com/corsair-vengeance-ddr5-6400mhz-64gb-2x32gb-cl32\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1066/10668240/1257-corsair-vengeance-ddr5-6400mhz-64gb-2x32gb-cl32-mejor-precio.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1066/10668240/1257-corsair-vengeance-ddr5-6400mhz-64gb-2x32gb-cl32-mejor-precio.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"202.48\",\n            \"original_price\": \"202.48\",\n            \"lowest_price\": \"202.48\",\n            \"created_at\": \"2024-04-25T19:46:32.000Z\",\n            \"updated_at\": \"2024-04-25T19:46:32.000Z\",\n            \"category\": {\n                \"id\": \"f48466a5-74ea-470b-ba46-a45e88a1b151\",\n                \"name\": \"Memorias RAM\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n                \"slug\": \"memorias-ram\"\n            }\n        },\n        {\n            \"id\": \"680302e4-a6f1-486d-97a7-44c9c02c4147\",\n            \"name\": \"Corsair MP700 PRO 2TB SSD PCIe M.2 NVMe 2.0 Gen5 x4 con Refrigerador de Aire\",\n            \"url\": \"https://www.pccomponentes.com/corsair-mp700-pro-2tb-ssd-pcie-m2-nvme-20-gen5-x4-con-refrigerador-de-aire\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1079/10798923/11-corsair-mp700-pro-2tb-ssd-pcie-m2-nvme-20-gen5-x4-con-refrigerador-de-aire.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1079/10798923/11-corsair-mp700-pro-2tb-ssd-pcie-m2-nvme-20-gen5-x4-con-refrigerador-de-aire.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"287.60\",\n            \"original_price\": \"287.60\",\n            \"lowest_price\": \"287.60\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"444bb1ca-fa71-49f1-8272-ee019b742447\",\n                \"name\": \"Discos Duros\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1057/10578300/1498-kingston-nv2-1tb-ssd-pcie-40-nvme-gen-4x4.jpg\",\n                \"slug\": \"discos-duros\"\n            }\n        }\n    ]\n}"
+				}
+			]
 		},
 		{
 			"name": "Get Product By ID",
@@ -94,7 +832,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseurl}}/api/v1/products/1",
+					"raw": "{{baseurl}}/api/v1/products/03817895-1230-4841-8c25-fa64bae75428",
 					"host": [
 						"{{baseurl}}"
 					],
@@ -102,12 +840,249 @@
 						"api",
 						"v1",
 						"products",
-						"1"
+						"03817895-1230-4841-8c25-fa64bae75428"
 					]
 				},
-				"description": "This endpoint retrieves a specific product from the database based on its unique identifier (ID). It accepts a GET request with the product ID as a parameter in the URL path. Upon successful retrieval, the endpoint returns detailed information about the product, including its name, URL, vendor, category, brand, stock availability, current price, original price, and lowest price. If the product with the specified ID is not found in the database, the endpoint returns a 404 status code along with an appropriate error message. Additionally, if any errors occur during the retrieval process, the endpoint returns an error response with the corresponding status code and message."
+				"description": "This endpoint retrieves a specific product from the database based on its ID. The endpoint returns detailed information about the product. If the product with the specified ID is not found in the database, the endpoint returns a 404 status code along with an appropriate error message. Additionally, if any errors occur during the retrieval process, the endpoint returns an error response with the corresponding status code and message."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "200 Get product by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/03817895-1230-4841-8c25-fa64bae75428",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"03817895-1230-4841-8c25-fa64bae75428"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=98, reset=590"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "789"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"315-86qXIXxeMLErSQo2BrTewxfg27U\""
+						},
+						{
+							"key": "cache-control",
+							"value": "max-age=3, must-revalidate"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 17:43:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"03817895-1230-4841-8c25-fa64bae75428\",\n    \"name\": \"WD BLACK SN770 1TB SSD PCIe Gen4 NVMe\",\n    \"url\": \"https://www.pccomponentes.com/dlss3\",\n    \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1006/10060346/1242-wd-black-sn770-1tb-nvme-ssd.jpg\",\n    \"img\": \"https://img.pccomponentes.com/articles/1006/10060346/1242-wd-black-sn770-1tb-nvme-ssd.jpg\",\n    \"seller\": \"PcComponentes\",\n    \"brand\": \"Western Digital\",\n    \"stock\": true,\n    \"current_price\": \"68.58\",\n    \"original_price\": \"68.58\",\n    \"lowest_price\": \"68.58\",\n    \"created_at\": \"2024-03-14T22:06:49.000Z\",\n    \"updated_at\": \"2024-04-25T19:13:00.000Z\",\n    \"category\": {\n        \"id\": \"444bb1ca-fa71-49f1-8272-ee019b742447\",\n        \"name\": \"Discos Duros\",\n        \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1057/10578300/1498-kingston-nv2-1tb-ssd-pcie-40-nvme-gen-4x4.jpg\",\n        \"slug\": \"discos-duros\"\n    }\n}"
+				},
+				{
+					"name": "404 Product not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/03817895-1230-4841-8c25-fa64bae7542s",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"03817895-1230-4841-8c25-fa64bae7542s"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=97, reset=367"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f-Zkgaox/LmBaRs1Ofkuc8bu8COvo\""
+						},
+						{
+							"key": "cache-control",
+							"value": "no-store"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 17:47:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product not found\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Get Products By Category",
@@ -115,7 +1090,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseurl}}/api/v1/products/categories/1",
+					"raw": "{{baseurl}}/api/v1/products/categories/fuentes-de-alimentacion",
 					"host": [
 						"{{baseurl}}"
 					],
@@ -124,12 +1099,393 @@
 						"v1",
 						"products",
 						"categories",
-						"1"
+						"fuentes-de-alimentacion"
 					]
 				},
-				"description": "This endpoint retrieves products belonging to a specific category from the database. It accepts a GET request with the category ID as a parameter in the URL path. Upon receiving the request, the endpoint queries the database for all products associated with the specified category. If products are found, the endpoint returns detailed information about each product, including its name, URL, vendor, brand, stock availability, current price, original price, and lowest price. If no products are found for the given category ID, the endpoint returns an empty response with a 200 status code. However, if an error occurs during the retrieval process, the endpoint returns an error response with the corresponding status code and message."
+				"description": "This endpoint retrieves products belonging to a specific category from the database. The endpoint queries the database for all products associated with the specified category. If products are found, the endpoint returns detailed information about each product. If no products are found for the given category ID, the endpoint returns an empty response with a 200 status code. However, if an error occurs during the retrieval process, the endpoint returns an error response with the corresponding status code and message."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "200 Get products by category",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/categories/fuentes-de-alimentacion",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"categories",
+								"fuentes-de-alimentacion"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=96, reset=353"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23e7-A5DXSLJ37Si8c8B/iSAt8+o4jBY\""
+						},
+						{
+							"key": "cache-control",
+							"value": "max-age=3, must-revalidate"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 17:47:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"totalProducts\": 17,\n    \"pages\": 2,\n    \"currentPage\": 1,\n    \"data\": [\n        {\n            \"id\": \"4129f3c3-429b-496f-aa3c-e5ddcfcf85e5\",\n            \"name\": \"MSI MAG A750GL PCIE5 750W 80 PLUS Gold Modular\",\n            \"url\": \"https://www.pccomponentes.com/msi-mag-a750gl-pcie5-750w-80-plus-gold-modular\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1074/10745583/3516-msi-mag-a750gl-pcie5-750w-80-plus-gold-modular-mejor-precio.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1074/10745583/3516-msi-mag-a750gl-pcie5-750w-80-plus-gold-modular-mejor-precio.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"MSI\",\n            \"stock\": true,\n            \"current_price\": \"99.99\",\n            \"original_price\": \"99.99\",\n            \"lowest_price\": \"99.99\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n                \"name\": \"Fuentes de Alimentación\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n                \"slug\": \"fuentes-de-alimentacion\"\n            }\n        },\n        {\n            \"id\": \"68602a3d-90eb-490b-8241-8919a93c546b\",\n            \"name\": \"NOX Hummer X Gold Edition 1000W 80 Plus Gold Full Modular\",\n            \"url\": \"https://www.pccomponentes.com/nox-hummer-x-gold-edition-1000w-80-plus-gold-full-modular\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/47/477673/149-nox-hummer-x-gold-edition-1000w-80-plus-gold-full-modular.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/47/477673/149-nox-hummer-x-gold-edition-1000w-80-plus-gold-full-modular.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"NOX\",\n            \"stock\": true,\n            \"current_price\": \"121.48\",\n            \"original_price\": \"121.48\",\n            \"lowest_price\": \"121.48\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n                \"name\": \"Fuentes de Alimentación\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n                \"slug\": \"fuentes-de-alimentacion\"\n            }\n        },\n        {\n            \"id\": \"6ecff331-8696-4283-8322-697fb5ba69b5\",\n            \"name\": \"Corsair CX750 750 W 80 Plus Bronze\",\n            \"url\": \"https://www.pccomponentes.com/corsair-cx750-750-w-80-plus-bronze\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1078/10789658/1376-corsair-cx750-750-w-80-plus-bronze.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1078/10789658/1376-corsair-cx750-750-w-80-plus-bronze.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"61.90\",\n            \"original_price\": \"61.90\",\n            \"lowest_price\": \"61.90\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n                \"name\": \"Fuentes de Alimentación\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n                \"slug\": \"fuentes-de-alimentacion\"\n            }\n        },\n        {\n            \"id\": \"7dfc8788-6d79-4fba-8800-d820ff928dc2\",\n            \"name\": \"Forgeon Bolt PSU 1000W 80+ Gold Full Modular Negra\",\n            \"url\": \"https://www.pccomponentes.com/forgeon-bolt-psu-1000w-80-gold-full-modular-negra\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1073/10731665/1236-forgeon-bolt-psu-1000w-gold-full-modular-negra.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1073/10731665/1236-forgeon-bolt-psu-1000w-gold-full-modular-negra.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Forgeon\",\n            \"stock\": true,\n            \"current_price\": \"173.55\",\n            \"original_price\": \"173.55\",\n            \"lowest_price\": \"173.55\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n                \"name\": \"Fuentes de Alimentación\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n                \"slug\": \"fuentes-de-alimentacion\"\n            }\n        },\n        {\n            \"id\": \"947c9f5f-0fe0-4517-844c-1982a52bfb63\",\n            \"name\": \"Forgeon Bolt PSU 1000W 80+ Gold Full Modular Blanca\",\n            \"url\": \"https://www.pccomponentes.com/forgeon-bolt-psu-1000w-80-gold-full-modular-blanca\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1073/10731662/186-forgeon-bolt-psu-1000w-gold-full-modular-blanca.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1073/10731662/186-forgeon-bolt-psu-1000w-gold-full-modular-blanca.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Forgeon\",\n            \"stock\": true,\n            \"current_price\": \"173.55\",\n            \"original_price\": \"173.55\",\n            \"lowest_price\": \"173.55\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n                \"name\": \"Fuentes de Alimentación\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n                \"slug\": \"fuentes-de-alimentacion\"\n            }\n        },\n        {\n            \"id\": \"a6f9fffb-b610-4039-b3eb-77b7383e12a3\",\n            \"name\": \"Corsair RMx Series RM850x 850W 80 Plus Gold Modular\",\n            \"url\": \"https://www.pccomponentes.com/corsair-rmx-series-rm850x-850w-80-plus-gold-modular\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/39/390901/1900-corsair-rmx-series-rm850x-850w-80-plus-gold-modular.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/39/390901/1900-corsair-rmx-series-rm850x-850w-80-plus-gold-modular.jpg\",\n            \"seller\": \"OCASIONIA\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"143.64\",\n            \"original_price\": \"143.64\",\n            \"lowest_price\": \"143.64\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n                \"name\": \"Fuentes de Alimentación\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n                \"slug\": \"fuentes-de-alimentacion\"\n            }\n        },\n        {\n            \"id\": \"a974396e-6160-4f69-a353-85afebc0769d\",\n            \"name\": \"Corsair RMx Series RM1000x 1000W 80 Plus Gold Modular\",\n            \"url\": \"https://www.pccomponentes.com/corsair-rmx-series-rm1000x-1000w-80-plus-gold-modular\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/39/390904/1511-corsair-rmx-series-rm1000x-1000w-80-plus-gold-modular.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/39/390904/1511-corsair-rmx-series-rm1000x-1000w-80-plus-gold-modular.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"148.75\",\n            \"original_price\": \"148.75\",\n            \"lowest_price\": \"148.75\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n                \"name\": \"Fuentes de Alimentación\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n                \"slug\": \"fuentes-de-alimentacion\"\n            }\n        },\n        {\n            \"id\": \"bfe59308-af93-43ae-9215-195782ef3691\",\n            \"name\": \"Tempest PSU PRO 750W 80+ Bronze Fuente de Alimentación\",\n            \"url\": \"https://www.pccomponentes.com/tempest-psu-pro-750w-80-bronze-fuente-de-alimentacion\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/409508/1949-tempest-gaming-psu-pro-750w-80-plus-bronce.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/40/409508/1949-tempest-gaming-psu-pro-750w-80-plus-bronce.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Tempest\",\n            \"stock\": true,\n            \"current_price\": \"38.83\",\n            \"original_price\": \"38.83\",\n            \"lowest_price\": \"38.83\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n                \"name\": \"Fuentes de Alimentación\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n                \"slug\": \"fuentes-de-alimentacion\"\n            }\n        },\n        {\n            \"id\": \"c6e066d8-f81c-4c75-8826-5e0c81a22c78\",\n            \"name\": \"Nfortec Scutum X 850W 80 Plus Bronze Semi Modular\",\n            \"url\": \"https://www.pccomponentes.com/nfortec-scutum-x-850w-80-plus-bronze-semi-modular\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/38/388878/1487-nfortec-scutum-x-850w-80-plus-bronze-semi-modular.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/38/388878/1487-nfortec-scutum-x-850w-80-plus-bronze-semi-modular.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Nfortec\",\n            \"stock\": true,\n            \"current_price\": \"61.98\",\n            \"original_price\": \"61.98\",\n            \"lowest_price\": \"61.98\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n                \"name\": \"Fuentes de Alimentación\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n                \"slug\": \"fuentes-de-alimentacion\"\n            }\n        },\n        {\n            \"id\": \"c9018c1f-c3b0-4558-86e7-0fdc41bad21c\",\n            \"name\": \"Corsair RMe Series RM750e 750W 80 Plus Gold Modular\",\n            \"url\": \"https://www.pccomponentes.com/corsair-rme-series-rm750e-750w-80-plus-gold-modular\",\n            \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1067/10675858/2712-corsair-rme-series-rm750e-750w-80-plus-gold-modular-comprar.jpg\",\n            \"img\": \"https://img.pccomponentes.com/articles/1067/10675858/2712-corsair-rme-series-rm750e-750w-80-plus-gold-modular-comprar.jpg\",\n            \"seller\": \"PcComponentes\",\n            \"brand\": \"Corsair\",\n            \"stock\": true,\n            \"current_price\": \"109.83\",\n            \"original_price\": \"109.83\",\n            \"lowest_price\": \"109.83\",\n            \"created_at\": \"2024-03-14T22:06:49.000Z\",\n            \"updated_at\": \"2024-03-14T22:06:49.000Z\",\n            \"category\": {\n                \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n                \"name\": \"Fuentes de Alimentación\",\n                \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n                \"slug\": \"fuentes-de-alimentacion\"\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "404 Category doesnt exist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/categories/fuentes-de-asddas",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"categories",
+								"fuentes-de-asddas"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=95, reset=328"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23-GvwTMCc8W1yErGfayELyGf1rxrg\""
+						},
+						{
+							"key": "cache-control",
+							"value": "no-store"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 17:47:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Category doesnt exist\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/v1/categories",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories"
+					]
+				},
+				"description": "This endpoint returns all the categories with his id, name and slug.\n\nIf any errors occur during the creation process, appropriate error messages are returned along with the corresponding status codes."
+			},
+			"response": [
+				{
+					"name": "Get Categories",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/categories",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=89, reset=491"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"746-1iC3bsJ9gB1NxrVNuVo5g8+xKrQ\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 11:37:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"444bb1ca-fa71-49f1-8272-ee019b742447\",\n        \"name\": \"Discos Duros\",\n        \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1057/10578300/1498-kingston-nv2-1tb-ssd-pcie-40-nvme-gen-4x4.jpg\",\n        \"slug\": \"discos-duros\"\n    },\n    {\n        \"id\": \"49e171bb-069b-4a0d-b579-288f22c0e07a\",\n        \"name\": \"Tarjetas Gráficas\",\n        \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1075/10755558/1958-msi-geforce-rtx-4060-ventus-2x-white-oc-8gb-gddr6-dlss3.jpg\",\n        \"slug\": \"tarjetas-graficas\"\n    },\n    {\n        \"id\": \"5a9ef310-2d5b-4766-8a02-c81f4a5c57bf\",\n        \"name\": \"Portátiles\",\n        \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1067/10678496/1313-lg-gram-15zd90r-gax75b-intel-evo-core-i7-1360p-16gb-512gb-ssd-15-comprar.jpg\",\n        \"slug\": \"portatiles\"\n    },\n    {\n        \"id\": \"7876dcb9-f73f-40d1-bd03-5e4184ce114b\",\n        \"name\": \"Placas Base\",\n        \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1080/10803246/1684-msi-pro-b650-s-wifi.jpg\",\n        \"slug\": \"placas-base\"\n    },\n    {\n        \"id\": \"8163ea82-00df-4504-bc54-b2ffeaea7dad\",\n        \"name\": \"Fuentes de Alimentación\",\n        \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/40/402146/1563-cooler-master-mwe-gold-850-v2-850w-80-plus-gold-modular.jpg\",\n        \"slug\": \"fuentes-de-alimentacion\"\n    },\n    {\n        \"id\": \"ade73099-703d-42ca-8d93-79d3b5c0f29c\",\n        \"name\": \"Sobremesa\",\n        \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1079/10790463/1309-pccom-imperial-amd-ryzen-7-5800x-32gb-1tb-ssd-rtx-4070-negro-windows-11-home.jpg\",\n        \"slug\": \"sobremesa\"\n    },\n    {\n        \"id\": \"ddc1279a-58a2-488e-b28f-8e6b7dcd621c\",\n        \"name\": \"Smartphone/Móviles\",\n        \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1067/10673828/1839-samsung-galaxy-a34-5g-8-256gb-negro-libre-protector-pantalla.jpg\",\n        \"slug\": \"smartphone-moviles\"\n    },\n    {\n        \"id\": \"f48466a5-74ea-470b-ba46-a45e88a1b151\",\n        \"name\": \"Memorias RAM\",\n        \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1052/10522541/1432-corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18.jpg\",\n        \"slug\": \"memorias-ram\"\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Get Product Changes",
@@ -137,7 +1493,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseurl}}/api/v1/products/changes/1",
+					"raw": "{{baseurl}}/api/v1/products/changes/03817895-1230-4841-8c25-fa64bae75428",
 					"host": [
 						"{{baseurl}}"
 					],
@@ -146,12 +1502,251 @@
 						"v1",
 						"products",
 						"changes",
-						"1"
+						"03817895-1230-4841-8c25-fa64bae75428"
 					]
 				},
-				"description": "This endpoint retrieves the changes made to a specific product over time. It accepts a GET request with the product ID as a parameter in the URL path. Upon receiving the request, the endpoint queries the database for all changes associated with the specified product. Each change represents a modification to the product, such as updates to its attributes or price adjustments. The endpoint returns a list of changes, including details such as the type of change, the previous value, and the new value. If no changes are found for the given product ID, the endpoint returns an empty response with a 200 status code. However, if an error occurs during the retrieval process, the endpoint returns an error response with the corresponding status code and message."
+				"description": "This endpoint retrieves the changes made to a specific product over time. The endpoint queries the database for all changes associated with the specified product. Each change represents a modification to the product, such as updates to its attributes or price adjustments.\n\nThe endpoint returns a list of changes, including details such as the type of change, the previous value, and the new value. If no changes are found for the given product ID, the endpoint returns an empty response with a 200 status code. However, if an error occurs during the retrieval process, the endpoint returns an error response with the corresponding status code and message."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "200 Get Product Changes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/changes/03817895-1230-4841-8c25-fa64bae75428",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"changes",
+								"03817895-1230-4841-8c25-fa64bae75428"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=94, reset=292"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"36-JhXeyyRvt6I/xUIaWEgu232svj0\""
+						},
+						{
+							"key": "cache-control",
+							"value": "max-age=3, must-revalidate"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 17:48:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"totalChanges\": 0,\n    \"pages\": 0,\n    \"currentPage\": 1,\n    \"data\": []\n}"
+				},
+				{
+					"name": "404 Product not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/changes/03817895-1230-4841-8c25-fa64bae754s",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"changes",
+								"03817895-1230-4841-8c25-fa64bae754s"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=93, reset=273"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f-Zkgaox/LmBaRs1Ofkuc8bu8COvo\""
+						},
+						{
+							"key": "cache-control",
+							"value": "no-store"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 17:48:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product not found\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Update Product",
@@ -160,7 +1755,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Example Product 3\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\r\n  \"category\": \"Sobremesa\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}",
+					"raw": "{\r\n  \"name\": \"Example Product Updated\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\r\n  \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"category\": \"Sobremesa\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -168,7 +1763,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseurl}}/api/v1/products/1",
+					"raw": "{{baseurl}}/api/v1/products/6514d735-8b5b-40ae-b912-28e4d2b21dc0as",
 					"host": [
 						"{{baseurl}}"
 					],
@@ -176,12 +1771,382 @@
 						"api",
 						"v1",
 						"products",
-						"1"
+						"6514d735-8b5b-40ae-b912-28e4d2b21dc0as"
 					]
 				},
-				"description": "This endpoint allows updating an existing product by its ID. It accepts a PUT request with the product ID as a parameter in the URL path and the updated product data in the request body. The endpoint first validates the request payload to ensure that it contains valid data for updating the product. If the payload is valid, the endpoint attempts to locate the product in the database by its ID. If the product is found, it updates the product attributes with the new values provided in the request body. After successfully updating the product, the endpoint returns a response with the updated product data and a 200 status code. If the product ID is not found in the database, the endpoint returns a 404 status code with an error message indicating that the product was not found. In case of any errors during the update process, such as invalid input data or database errors, the endpoint returns an error response with the appropriate status code and message."
+				"description": "This endpoint allows updating an existing product by its ID. The endpoint first validates the request payload to ensure that it contains valid data for updating the product. If the payload is valid, the endpoint attempts to locate the product in the database by its ID. If the product is found, it updates the product attributes with the new values provided in the request body.\n\nAfter successfully updating the product, the endpoint returns a response with the updated product data and a 200 status code. If the product ID is not found in the database, the endpoint returns a 404 status code with an error message indicating that the product was not found. In case of any errors during the update process, such as invalid input data or database errors, the endpoint returns an error response with the appropriate status code and message."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "200 Updated product",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Example Product Updated\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\r\n  \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"img\": \"https://img.pccomponentes.com/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"category\": \"Sobremesa\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/6514d735-8b5b-40ae-b912-28e4d2b21dc0",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6514d735-8b5b-40ae-b912-28e4d2b21dc0"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=97, reset=551"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "739"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e3-EI7NkCgpR2haLnU6E2TC9wmpD9E\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 18:02:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6514d735-8b5b-40ae-b912-28e4d2b21dc0\",\n    \"name\": \"Example Product Updated\",\n    \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\n    \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\n    \"img\": \"https://img.pccomponentes.com/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\n    \"seller\": \"Example Seller\",\n    \"category_id\": \"5a9ef310-2d5b-4766-8a02-c81f4a5c57bf\",\n    \"brand\": \"Example Brand\",\n    \"stock\": true,\n    \"current_price\": \"99.99\",\n    \"original_price\": \"129.99\",\n    \"lowest_price\": \"79.99\",\n    \"created_at\": \"2024-04-27T17:49:33.000Z\",\n    \"updated_at\": \"2024-04-27T18:02:57.000Z\"\n}"
+				},
+				{
+					"name": "404 Product not found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Example Product Updated\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\r\n  \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"img\": \"https://img.pccomponentes.com/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"category\": \"Sobremesa\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/6514d735-8b5b-40ae-b912-28e4d2b21dc0as",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6514d735-8b5b-40ae-b912-28e4d2b21dc0as"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=96, reset=534"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f-Zkgaox/LmBaRs1Ofkuc8bu8COvo\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 18:03:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product not found\"\n}"
+				},
+				{
+					"name": "400 Bad request missing field",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Example Product Updated\",\r\n  \"url\": \"https://www.pccomponentes.com/msi-geforce-rtx-4060-ventus-2x-black-oc-8gb-gddr6s5\",\r\n  \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\r\n  \"category\": \"Sobremesa\",\r\n  \"seller\": \"Example Seller\",\r\n  \"brand\": \"Example Brand\",\r\n  \"stock\": true,\r\n  \"current_price\": 99.99,\r\n  \"original_price\": 129.99,\r\n  \"lowest_price\": 79.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/6514d735-8b5b-40ae-b912-28e4d2b21dc0as",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6514d735-8b5b-40ae-b912-28e4d2b21dc0as"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=95, reset=519"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "110"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6e-uG48paLnU9MQJHwjeba67/wtlMs\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 18:03:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"message\": \"\\\"img\\\" is required\",\n        \"path\": [\n            \"img\"\n        ],\n        \"type\": \"any.required\",\n        \"context\": {\n            \"label\": \"img\",\n            \"key\": \"img\"\n        }\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Update Product",
@@ -190,7 +2155,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/dlss3\"\r\n}",
+					"raw": "{\r\n  \"url\": \"https://www.psccomponentes.com/dlss3\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -198,7 +2163,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseurl}}/api/v1/products/1",
+					"raw": "{{baseurl}}/api/v1/products/6514d735-8b5b-40ae-b912-28e4d2b21dc0s",
 					"host": [
 						"{{baseurl}}"
 					],
@@ -206,12 +2171,382 @@
 						"api",
 						"v1",
 						"products",
-						"1"
+						"6514d735-8b5b-40ae-b912-28e4d2b21dc0s"
 					]
 				},
-				"description": "This PATCH endpoint allows for updating specific fields of an existing product by its ID. It accepts a PATCH request with the product ID as a parameter in the URL path and the fields to be updated in the request body. Unlike the PUT endpoint, which requires sending the full object for updating, this endpoint allows for partial updates by specifying only the fields that need to be changed. The endpoint first validates the request payload to ensure that it contains valid data for updating the product. If the payload is valid, the endpoint attempts to locate the product in the database by its ID. If the product is found, it updates the specified fields with the new values provided in the request body. After successfully updating the product, the endpoint returns a response with the updated product data and a 200 status code. If the product ID is not found in the database, the endpoint returns a 404 status code with an error message indicating that the product was not found. In case of any errors during the update process, such as invalid input data or database errors, the endpoint returns an error response with the appropriate status code and message."
+				"description": "This PATCH endpoint allows for updating specific fields of an existing product by its ID. Unlike the PUT endpoint, which requires sending the full object for updating, this endpoint allows for partial updates by specifying only the fields that need to be changed. The endpoint first validates the request payload to ensure that it contains valid data for updating the product. If the payload is valid, the endpoint attempts to locate the product in the database by its ID. If the product is found, it updates the specified fields with the new values provided in the request body.\n\nAfter successfully updating the product, the endpoint returns a response with the updated product data and a 200 status code. If the product ID is not found in the database, the endpoint returns a 404 status code with an error message indicating that the product was not found. In case of any errors during the update process, such as invalid input data or database errors, the endpoint returns an error response with the appropriate status code and message."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "200 Updated product",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/dlss3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/6514d735-8b5b-40ae-b912-28e4d2b21dc0",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6514d735-8b5b-40ae-b912-28e4d2b21dc0"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=92, reset=471"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "693"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2b5-AA2OHl2uMgIBFLxWBm6uwvyHqb0\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 18:04:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6514d735-8b5b-40ae-b912-28e4d2b21dc0\",\n    \"name\": \"Example Product Updated\",\n    \"url\": \"https://www.pccomponentes.com/dlss3\",\n    \"thumb\": \"https://thumb.pccomponentes.com/w-150-150/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\n    \"img\": \"https://img.pccomponentes.com/articles/1082/10820124/1829-redmi-buds-4-active-auriculares-inalambricos-con-estuche-de-carga-blancos.jpg\",\n    \"seller\": \"Example Seller\",\n    \"category_id\": \"5a9ef310-2d5b-4766-8a02-c81f4a5c57bf\",\n    \"brand\": \"Example Brand\",\n    \"stock\": true,\n    \"current_price\": \"99.99\",\n    \"original_price\": \"129.99\",\n    \"lowest_price\": \"79.99\",\n    \"created_at\": \"2024-04-27T17:49:33.000Z\",\n    \"updated_at\": \"2024-04-27T18:04:18.262Z\"\n}"
+				},
+				{
+					"name": "404 Product not found",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"url\": \"https://www.pccomponentes.com/dlss3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/6514d735-8b5b-40ae-b912-28e4d2b21dc0s",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6514d735-8b5b-40ae-b912-28e4d2b21dc0s"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=91, reset=451"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d-KH4ngqV3S/XmJmUEKpwjFfjZ2wg\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 18:04:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Product not found\"\n}"
+				},
+				{
+					"name": "400 Bad request invalid URL",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"url\": \"https://www.psccomponentes.com/dlss3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/6514d735-8b5b-40ae-b912-28e4d2b21dc0s",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6514d735-8b5b-40ae-b912-28e4d2b21dc0s"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=90, reset=420"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "235"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"eb-EACp0SSgydPvUIc/NcFoFU/esEQ\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 18:05:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"message\": \"\\\"url\\\" contains an invalid value\",\n        \"path\": [\n            \"url\"\n        ],\n        \"type\": \"any.invalid\",\n        \"context\": {\n            \"message\": \"url have to be a valid url from PcComponentes domain\",\n            \"label\": \"url\",\n            \"value\": \"https://www.psccomponentes.com/dlss3\",\n            \"key\": \"url\"\n        }\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Delete Product",
@@ -219,7 +2554,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseurl}}/api/v1/products/2",
+					"raw": "{{baseurl}}/api/v1/products/aec79149-81c2-4dc7-9d60-79dde338d5f2",
 					"host": [
 						"{{baseurl}}"
 					],
@@ -227,14 +2562,242 @@
 						"api",
 						"v1",
 						"products",
-						"2"
+						"aec79149-81c2-4dc7-9d60-79dde338d5f2"
 					]
 				},
-				"description": "Allows for deleting an existing product by its ID. It accepts a DELETE request with the product ID as a parameter in the URL path. The endpoint first attempts to locate the product in the database by its ID. If the product is found, it removes the product from the database permanently. After successful deletion, the endpoint returns a response with a 204 status code, indicating that the product was deleted successfully and there is no content to return. If the product ID is not found in the database, the endpoint returns a 404 status code with an error message indicating that the product was not found. In case of any errors during the deletion process, such as database errors, the endpoint returns an error response with the appropriate status code and message."
+				"description": "Allows for deleting an existing product by its ID. The endpoint first attempts to locate the product in the database by its ID. If the product is found, it removes the product from the database permanently.\n\nAfter successful deletion, the endpoint returns a response with a 204 status code, indicating that the product was deleted successfully and there is no content to return. If the product ID is not found in the database, the endpoint returns a 404 status code with an error message indicating that the product was not found. In case of any errors during the deletion process, such as database errors, the endpoint returns an error response with the appropriate status code and message."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "204 Successfully deleted product",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/765e97b6-c677-49a3-ab22-309e86efc2b6",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"765e97b6-c677-49a3-ab22-309e86efc2b6"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=98, reset=396"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 12:23:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "404 Product dont exists",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/products/765e97b6-c677-49a3-ab22-309e86efc2b6",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"765e97b6-c677-49a3-ab22-309e86efc2b6"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=600"
+						},
+						{
+							"key": "RateLimit",
+							"value": "limit=100, remaining=97, reset=371"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f-Zkgaox/LmBaRs1Ofkuc8bu8COvo\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Apr 2024 12:24:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product not found\"\n}"
+				}
+			]
 		}
 	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "Example",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-api-key",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
