@@ -2,12 +2,13 @@ import Joi from "joi";
 
 // Check if its a url of PcComponentes
 function validateURL(value, helpers) {
-  const validURLS = ["www.pccomponentes.com","thumb.pccomponentes.com","img.pccomponentes.com"];
+  const validURLS = new Set(["www.pccomponentes.com","thumb.pccomponentes.com","img.pccomponentes.com"]);
   try {
     const parsedURL = new URL(value);
-    if (validURLS.indexOf(parsedURL !== -1)) {
+    if (validURLS.has(parsedURL.hostname)) {
       return value; // Return the validated URL
     }
+
     throw new Error();
   } catch (error) {
     return helpers.error("any.invalid", { message: "url have to be a valid url from PcComponentes domain" });
