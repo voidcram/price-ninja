@@ -42,5 +42,5 @@ npm run dev
 [![Image from Gyazo](https://i.gyazo.com/7e72d9142aa4cab2625b04a7f63b66d8.gif)](https://gyazo.com/7e72d9142aa4cab2625b04a7f63b66d8)
 ---
 ## Contributors
-[@voidscram](https://github.com/voidcram) REST API, PcComponentes Scraper, product search\
+[@voidsocram](https://github.com/voidsocram) REST API, PcComponentes Scraper, product search\
 [@adexe03](https://github.com/adexe03) Page Design, Page
